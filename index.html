@@ -24,12 +24,11 @@
       min-height: 100vh;
       color: var(--text);
       font-family: system-ui, sans-serif;
-      line-height: 1.6;
-
-      /* ✨ background – gradient + optional image overlay */
+    
       background:
-        radial-gradient(circle at top, #3f2a70 0%, #1a102a 40%, #050308 100%);
-      background-attachment: fixed;
+        linear-gradient(135deg, rgba(95, 74, 154, 0.7), rgba(123, 101, 201, 0.7)),
+        url('https://i.pinimg.com/1200x/c2/9a/d9/c29ad93c7ddc9a17cc6d591b7c7b01c3.jpg')
+          center/cover fixed no-repeat;
     }
 
     a { color: var(--lilac-light); text-decoration: none; }
@@ -97,14 +96,12 @@
       color: #fff;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.12), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(0,0,0,0.35), transparent 55%);
-      pointer-events: none;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 1.5rem;
+      color: #fff;
     }
     .hero-inner {
       max-width: 1100px;
