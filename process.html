@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morgan Alger · Process</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0d0a16;
+      --lilac-dark: #5f4a9a;
+      --lilac-mid: #7b65c9;
+      --lilac-light: #bfa9f0;
+      --text: #f5f5f5;
+      --muted: #c4c4c4;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+
+      /* same non-solid bg as other pages */
+      background: radial-gradient(circle at top, #3f2a70, #1a102a 40%, #050308 100%);
+      background-attachment: fixed;
+    }
+
+    a { color: var(--lilac-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    .top-nav {
+      background: #ffffff;
+      color: #111827;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .top-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { font-weight: 600; color: #111827; }
+    .nav-links { display: flex; gap: 1.4rem; }
+    .nav-links a { color: #111827; position: relative; }
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #111827;
+      border-radius: 999px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--lilac-dark), var(--lilac-mid));
+      padding: 3rem 1.5rem 4rem;
+      position: relative;
+      color: #fff;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.5);
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-heading {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .hero-text {
+      font-size: 1.05rem;
+      max-width: 700px;
+      opacity: 0.95;
+      margin-bottom: 1.1rem;
+    }
+    .hero-list {
+      font-size: 0.98rem;
+      max-width: 650px;
+      color: var(--text);
+    }
+    .hero-list ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin: 2.5rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">Morgan Alger</div>
+      <nav class="nav-links">
+        <a href="index.html">Bio</a>
+        <a href="characters.html">Characters</a>
+        <a href="worlds.html">Worlds</a>
+        <a href="process.html" class="active">Process</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-heading">Process</h1>
+      <p class="hero-text">
+        This page is for the behind-the-scenes side of my work. I’ll use it to show how pieces
+        grow from rough ideas into more finished characters and environments, including sketches,
+        thumbnails, and experiments.
+      </p>
+
+      <div class="hero-list">
+        <strong>Things I’ll include here over time:</strong>
+        <ul>
+          <li>Silhouette and gesture sketches</li>
+          <li>Value and lighting studies</li>
+          <li>Color tests and mood variations</li>
+          <li>Progress shots from first pass to final render</li>
+          <li>Occasional notes on what I learned from each piece</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Morgan Alger · Built with GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
