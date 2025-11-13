@@ -20,12 +20,11 @@
       color: var(--text);
       font-family: system-ui, sans-serif;
     
-      /* one shared background for the whole page */
-      background:
-        linear-gradient(135deg, rgba(95, 74, 154, 0.7), rgba(123, 101, 201, 0.7)),
-        url('https://i.pinimg.com/1200x/c2/9a/d9/c29ad93c7ddc9a17cc6d591b7c7b01c3.jpg')
-          center/cover fixed no-repeat;
+      /* just the image, no color on top */
+      background: url('https://i.pinimg.com/1200x/c2/9a/d9/c29ad93c7ddc9a17cc6d591b7c7b01c3.jpg')
+        center/cover fixed no-repeat;
     }
+
 
     a { color: var(--lilac-light); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -102,10 +101,10 @@
 
     footer {
       text-align: center;
-      margin: 2.5rem 0 2rem;
-      padding: 1rem 0;
-      background: #ffffff;   /* THIS makes the bar white */
-      color: #000000;        /* black text */
+      margin: 1.5rem 0 1.5rem;  /* small spacing above/below */
+      padding: 0;
+      background: transparent;  /* no white bar */
+      color: #000000;           /* keep text black, or #ffffff if you prefer */
       font-size: 0.85rem;
     }
   </style>
