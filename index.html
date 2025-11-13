@@ -8,24 +8,41 @@
     :root {
       --bg: #0d0a16;
       --lilac: #8e78c9;
-      --lilac-dark: #6f5aad;
+      --lilac-dark: #5f4a9a;
       --lilac-light: #bfa9f0;
       --text: #f5f5f5;
       --muted: #c4c4c4;
       --border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(11, 9, 24, 0.9);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth; /* smooth scroll for tabs */
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
+      min-height: 100vh;
       color: var(--text);
       font-family: system-ui, sans-serif;
       line-height: 1.6;
+
+      /* --- OPTION A: purple gradient background (default) --- */
+      background: radial-gradient(circle at top, #3f2a70 0%, #1a102a 40%, #0b0714 100%);
+      background-attachment: fixed;
+
+      /* --- OPTION B: your own image ---
+         To use an image instead of the gradient:
+         1) Put an image in your repo, e.g. images/bg.jpg
+         2) Comment out the gradient above, and uncomment the block below
+
+      background: url("images/bg.jpg") center / cover fixed no-repeat;
+      */
     }
 
     a {
@@ -84,12 +101,30 @@
       border-radius: 999px;
     }
 
+    .nav-icons {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 720px) {
+      .top-nav-inner {
+        padding-inline: 1.1rem;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+      }
+      .brand {
+        font-size: 0.95rem;
+      }
+    }
+
     /* -------- HERO SECTION -------- */
     .hero {
-      background: var(--lilac-dark);
-      padding: 3rem 1.5rem 4rem;
+      background: linear-gradient(135deg, var(--lilac-dark), #7b65c9);
+      padding: 3rem 1.5rem 3.5rem;
       color: #f9f9ff;
-      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
       position: relative;
       overflow: hidden;
     }
@@ -98,7 +133,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.15), transparent 55%);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.12), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0,0,0,0.3), transparent 55%);
       pointer-events: none;
     }
 
@@ -168,7 +205,6 @@
       font-size: 0.9rem;
     }
 
-    /* -------- RIGHT SIDE OF HERO -------- */
     .about-block {
       max-width: 650px;
     }
@@ -224,10 +260,38 @@
       opacity: 0.95;
     }
 
-    /* -------- FOOTER -------- */
+    /* -------- MAIN SECTIONS UNDER HERO -------- */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .section-block {
+      margin-bottom: 2.2rem;
+      padding: 1.3rem 1.2rem 1.4rem;
+      border-radius: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin: 0 0 0.6rem;
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
     footer {
-      margin-top: -2rem;
-      padding: 2.5rem 1.5rem 2rem;
+      padding: 1.5rem 1.5rem 2rem;
       text-align: center;
       font-size: 0.85rem;
       color: var(--muted);
@@ -254,10 +318,10 @@
   <!-- HERO / ABOUT -->
   <section class="hero" id="bio">
     <div class="hero-inner">
-
       <!-- LEFT PROFILE CARD -->
       <div class="profile-card">
         <div class="profile-photo-wrap">
+          <!-- Put your own image at images/profile.jpg or change this path -->
           <img src="images/profile.jpg" alt="Profile Photo">
         </div>
         <div class="profile-name">Morgan Alger</div>
@@ -265,9 +329,8 @@
         <div class="profile-sub">Game dev · Worldbuilding · CS Student</div>
 
         <div class="profile-social">
-          <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-          <a href="https://www.artstation.com/" target="_blank">ArtStation</a>
-          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/kkokoro" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a>
         </div>
       </div>
 
@@ -289,18 +352,18 @@
           <div class="hero-column">
             <h3>Interests</h3>
             <ul>
-              <li>Character design</li>
+              <li>Original characters & story-driven designs</li>
               <li>Environment mood & lighting</li>
-              <li>Worldbuilding</li>
+              <li>Game-inspired worlds and spaces</li>
             </ul>
           </div>
 
           <div class="hero-column">
             <h3>Currently</h3>
             <ul>
-              <li>Studying CS & game dev</li>
-              <li>Practicing art techniques</li>
-              <li>Building a portfolio</li>
+              <li>Studying CS & game development</li>
+              <li>Practicing character / environment art</li>
+              <li>Building a portfolio of small projects</li>
             </ul>
           </div>
         </div>
@@ -308,6 +371,42 @@
       </div>
     </div>
   </section>
+
+  <!-- MAIN CONTENT SECTIONS (so tabs have something to scroll to) -->
+  <main class="main">
+    <section id="characters" class="section-block">
+      <h2 class="section-title">Characters</h2>
+      <p class="section-text">
+        This section will showcase my character artwork and designs. I’ll add finished pieces,
+        explorations, and notes about who these characters are and the worlds they belong to.
+      </p>
+    </section>
+
+    <section id="worlds" class="section-block">
+      <h2 class="section-title">Worlds & Environments</h2>
+      <p class="section-text">
+        A place for environments, maps, and worldbuilding ideas. As I develop more locations and
+        settings, this area will hold concept art, mood studies, and in-engine screenshots.
+      </p>
+    </section>
+
+    <section id="process" class="section-block">
+      <h2 class="section-title">Process</h2>
+      <p class="section-text">
+        Here I’ll share sketches, progress shots, and small breakdowns of how I move from a rough idea
+        to a more finished piece—covering silhouettes, values, color, and iteration.
+      </p>
+    </section>
+
+    <section id="contact" class="section-block">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-text">
+        For questions, collaboration, or feedback, you can reach me at
+        <a href="mailto:youremail@example.com">morganmalger@icloud.com</a>.
+        You can also find more of my work on GitHub or LinkedIn using the links above.
+      </p>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -317,6 +416,5 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
