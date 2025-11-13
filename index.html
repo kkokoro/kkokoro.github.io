@@ -9,10 +9,10 @@
       --bg: #050814;
       --bg-alt: #0b1020;
       --accent: #8cd2ff;
-      --accent-soft: rgba(140, 210, 255, 0.18);
       --text: #f5f5f5;
       --muted: #c4c4c4;
       --border: rgba(255, 255, 255, 0.08);
+      --card: rgba(8, 16, 24, 0.9);
     }
 
     * {
@@ -28,119 +28,278 @@
       line-height: 1.6;
     }
 
-    .shell {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
-    .page {
+    /* ========= TOP NAV ========= */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      color: #111827;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .top-nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 1.5rem 1.5rem 3rem;
-      flex: 1;
-      width: 100%;
-    }
-
-    header {
-      padding: 1.75rem 0 1.25rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.2rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
-
-    h1 {
-      font-size: clamp(2.3rem, 4vw, 3rem);
-      margin: 0.75rem 0 0.25rem;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      max-width: 32rem;
-      color: var(--muted);
-      margin: 0.25rem 0 0.75rem;
-    }
-
-    .meta-line {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* Tabs / navigation */
-    .tabs-bar {
-      margin-top: 1.75rem;
-      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
       display: flex;
-      gap: 0.75rem;
-      overflow-x: auto;
-      padding-bottom: 0.3rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
 
-    .tab {
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
       position: relative;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.85rem;
-      color: var(--muted);
-      cursor: pointer;
-      white-space: nowrap;
-      background: transparent;
-      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease, transform 0.12s ease;
     }
 
-    .tab:hover {
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.02);
-      transform: translateY(-1px);
-    }
-
-    .tab.active {
-      color: var(--accent);
-      border-color: var(--accent-soft);
-      background: rgba(4, 166, 255, 0.06);
-    }
-
-    .tab.active::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
-      left: 50%;
-      bottom: -0.38rem;
-      transform: translateX(-50%);
-      width: 40%;
+      left: 0;
+      bottom: -0.3rem;
+      width: 100%;
       height: 2px;
       border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(140, 210, 255, 0.7);
+      background: #111827;
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: opacity 0.15s ease, transform 0.15s ease;
     }
 
-    main {
-      margin-top: 1.5rem;
+    .nav-links a:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
     }
 
-    .tab-panel {
-      display: none;
-      animation: fadeIn 0.25s ease;
+    .nav-icons {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
 
-    .tab-panel.active {
+    .nav-icons span {
+      cursor: default;
+    }
+
+    @media (max-width: 720px) {
+      .top-nav-inner {
+        padding-inline: 1.1rem;
+      }
+      .nav-links {
+        gap: 0.9rem;
+        font-size: 0.8rem;
+      }
+      .brand {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ========= HERO / PROFILE SECTION ========= */
+    .hero {
+      background: #064e3b;
+      color: #f9fafb;
+      padding: 2.8rem 1.5rem 3.4rem;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.15), transparent 55%),
+        radial-gradient(circle at 0 100%, rgba(0,0,0,0.15), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
+      gap: 2.5rem;
+      align-items: center;
+      z-index: 1;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        clip-path: none;
+        padding-bottom: 2.5rem;
+      }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .profile-card {
+      background: rgba(6, 78, 59, 0.92);
+      border-radius: 1.25rem;
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+
+    .profile-photo-wrap {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 0.9rem;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      position: relative;
+    }
+
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+    .profile-name {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .profile-role {
+      font-size: 0.88rem;
+      opacity: 0.9;
+    }
+
+    .profile-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-bottom: 0.9rem;
+    }
+
+    .profile-social {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .profile-social a {
+      color: #e5e7eb;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .profile-social a:hover {
+      opacity: 1;
+    }
+
+    .about-block {
+      max-width: 640px;
+    }
+
+    .hero-heading {
+      font-size: 1.8rem;
+      margin: 0 0 0.85rem;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      opacity: 0.95;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 250, 251, 0.6);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.2);
+      color: #f9fafb;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .hero-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .hero-column h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1rem;
+    }
+
+    .hero-column ul {
+      margin: 0.2rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    /* ========= MAIN PAGE SECTIONS (your old layout) ========= */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.3rem 1.5rem 3rem;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 800px) {
+      .sections {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .page {
+        padding-inline: 1.1rem;
+      }
+    }
+
+    section {
+      margin-top: 1.5rem;
     }
 
     h2 {
@@ -169,7 +328,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 0.9rem;
-      margin-top: 0.75rem;
     }
 
     .thumb {
@@ -242,15 +400,6 @@
       font-size: 0.95rem;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       margin-top: 2.5rem;
       border-top: 1px solid var(--border);
@@ -264,43 +413,89 @@
       max-width: 1100px;
       margin-inline: auto;
     }
-
-    @media (max-width: 700px) {
-      header {
-        padding-top: 1.25rem;
-      }
-      .page {
-        padding-inline: 1.1rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="page">
-      <header>
-        <div class="pill">Portfolio · Characters & Worlds</div>
-        <h1>Morgan Alger</h1>
-        <p class="tagline">
-          Character creation, worldbuilding, and game-inspired art. I like designing personalities,
-          moods, and spaces that feel like they belong to a larger story.
-        </p>
-        <p class="meta-line">
-          This site is a place to collect my characters, environments, and the worlds they belong to.
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">Morgan Alger</div>
+      <nav class="nav-links">
+        <a href="#bio">Bio</a>
+        <a href="#characters">Characters</a>
+        <a href="#worlds">Worlds</a>
+        <a href="#process">Process</a>
+        <a href="#links">Contact</a>
+      </nav>
+      <div class="nav-icons">
+        <span>☀︎</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / ABOUT -->
+  <section class="hero" id="bio">
+    <div class="hero-inner">
+      <!-- Left profile card -->
+      <div class="profile-card">
+        <div class="profile-photo-wrap">
+          <!-- put your own image at images/profile.jpg or change the src -->
+          <img src="images/profile.jpg" alt="Profile photo">
+        </div>
+        <div class="profile-name">Morgan Alger</div>
+        <div class="profile-role">Character & Environment Art</div>
+        <div class="profile-sub">Game dev · Worldbuilding · CS Student</div>
+
+        <div class="profile-social">
+          <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+          <a href="https://www.artstation.com/" target="_blank">ArtStation</a>
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Right about block -->
+      <div class="about-block">
+        <h2 class="hero-heading">About Me</h2>
+        <p class="hero-text">
+          I’m a computer science student who loves the artistic side of game development.
+          This site is where I collect my character designs, environments, and experiments in
+          building small worlds and moods.
         </p>
 
-        <!-- Tabs -->
-        <nav class="tabs-bar" aria-label="Portfolio sections">
-          <button class="tab active" data-tab="characters">Characters</button>
-          <button class="tab" data-tab="worlds">Worlds & Environments</button>
-          <button class="tab" data-tab="process">Process</button>
-          <button class="tab" data-tab="about">About & Contact</button>
-        </nav>
-      </header>
+        <div class="hero-buttons">
+          <a class="btn" href="#characters">View Characters</a>
+          <a class="btn" href="#worlds">View Worlds</a>
+        </div>
 
+        <div class="hero-columns">
+          <div class="hero-column">
+            <h3>Interests</h3>
+            <ul>
+              <li>Original characters & story-driven designs</li>
+              <li>Environment mood & lighting</li>
+              <li>Game-inspired worlds and spaces</li>
+            </ul>
+          </div>
+          <div class="hero-column">
+            <h3>Currently</h3>
+            <ul>
+              <li>Studying computer science & game dev</li>
+              <li>Practicing character / environment art</li>
+              <li>Building a portfolio of small projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT (your gallery + sidebar) -->
+  <div class="page">
+    <div class="sections">
+      <!-- Main content -->
       <main>
-        <!-- CHARACTERS TAB -->
-        <section id="tab-characters" class="tab-panel active" aria-label="Characters">
+        <!-- Characters -->
+        <section id="characters">
           <h2>Characters</h2>
           <div class="grid">
             <article class="thumb">
@@ -339,17 +534,10 @@
               </div>
             </article>
           </div>
-
-          <div class="card">
-            <p>
-              This section is for my character-focused work: designs, explorations, and finished pieces.
-              I'll gradually add more details, breakdowns, and notes for each character as I go.
-            </p>
-          </div>
         </section>
 
-        <!-- WORLDS TAB -->
-        <section id="tab-worlds" class="tab-panel" aria-label="Worlds and environments">
+        <!-- Worlds / Environments -->
+        <section id="worlds">
           <h2>Worlds & Environments</h2>
           <div class="grid">
             <article class="thumb">
@@ -365,7 +553,7 @@
             </article>
 
             <article class="thumb">
-              <img src="images/environment-2.png" alt="Game level blockout">
+              <img src="images/environment-2.png" alt="Game level art">
               <div class="thumb-overlay">
                 <div class="thumb-title">Environment Piece #2</div>
                 <div class="thumb-meta">...TBD...</div>
@@ -376,74 +564,72 @@
               </div>
             </article>
           </div>
-
-          <div class="card">
-            <p>
-              This section is for worldbuilding, environment concepts, and spaces that support the
-              characters and stories I imagine. More descriptions and pieces will be added over time.
-            </p>
-          </div>
         </section>
 
-        <!-- PROCESS TAB -->
-        <section id="tab-process" class="tab-panel" aria-label="Process and sketches">
+        <!-- Process -->
+        <section id="process">
           <h2>Process & Sketches</h2>
           <div class="card">
             <p>
               My process usually starts with rough sketches and broad shapes, then moves into refining
-              structure, lighting, and color. I like building things up in layers and adjusting as ideas
-              change or new details appear.
+              structure, lighting, and color. I build things up in layers and adjust as ideas change.
             </p>
             <ul>
               <li>Exploring silhouettes and shapes</li>
               <li>Building values and mood</li>
               <li>Experimenting with color and details</li>
-              <li>Preparing pieces for use in games or other projects</li>
+              <li>Preparing pieces for games or other projects</li>
             </ul>
           </div>
-
           <div class="card">
             <p>
-              This area will eventually include sketch pages, progress shots, and breakdowns so you can
+              This section will eventually include sketch pages, progress shots, and breakdowns so you can
               see how pieces grow from basic ideas to more finished artwork.
             </p>
           </div>
         </section>
+      </main>
 
-        <!-- ABOUT TAB -->
-        <section id="tab-about" class="tab-panel" aria-label="About and contact">
-          <h2>About & Contact</h2>
+      <!-- Sidebar -->
+      <aside>
+        <section id="about">
+          <h2>About Me</h2>
           <div class="card">
             <p>
               I'm a computer science student focusing on game development and the artistic side of
-              interactive worlds. I enjoy building characters, environments, and stories that could
-              live inside a game or animated project.
+              interactive worlds. I enjoy creating characters, environments, and stories that could
+              live inside a game or animated series.
             </p>
             <p>
-              This portfolio is a work in progress, and I'll keep updating it with new concepts, studies,
-              and finished pieces as I create them.
+              This portfolio is a work in progress — I'll keep adding new concepts, studies, and
+              finished pieces over time.
             </p>
           </div>
+        </section>
 
+        <section id="tools">
+          <h2>Tools</h2>
           <div class="card">
-            <h3 style="margin-top:0; font-size:1rem;">Tools & Skills</h3>
             <ul>
-              <li>Digital art (e.g. Procreate, Krita, Clip Studio, etc.)</li>
-              <li>3D work (e.g. Blender for characters/environments)</li>
-              <li>Game engines (Unity / Unreal) for testing ideas in-engine</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 style="margin-top:0; font-size:1rem;">Links</h3>
-            <ul>
-              <li><a href="https://github.com/kkokoro" target="_blank">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a></li>
-              <li>Email: <a href="mailto:youremail@example.com">morganmalger@icloud.com</a></li>
+              <li>Digital art (e.g. Procreate, Krita, Clip Studio)</li>
+              <li>3D (e.g. Blender for blocking out spaces/characters)</li>
+              <li>Game engines (Unity / Unreal) for environment tests</li>
             </ul>
           </div>
         </section>
-      </main>
+
+        <section id="links">
+          <h2>Links & Contact</h2>
+          <div class="card">
+            <ul>
+              <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+              <li><a href="https://www.artstation.com/" target="_blank">ArtStation</a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+              <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+            </ul>
+          </div>
+        </section>
+      </aside>
     </div>
 
     <footer>
@@ -455,29 +641,6 @@
   <script>
     // Set current year automatically
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Simple tab logic
-    const tabs = document.querySelectorAll(".tab");
-    const panels = document.querySelectorAll(".tab-panel");
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        const target = tab.getAttribute("data-tab");
-
-        // Update active tab
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-
-        // Update active panel
-        panels.forEach(panel => {
-          if (panel.id === "tab-" + target) {
-            panel.classList.add("active");
-          } else {
-            panel.classList.remove("active");
-          }
-        });
-      });
-    });
   </script>
 </body>
 </html>
