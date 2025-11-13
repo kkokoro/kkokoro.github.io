@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Character & Worldbuilding Portfolio</title>
+  <title>Morgan Alger · Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #050814;
-      --bg-alt: #0b1020;
-      --accent: #8cd2ff;
+      --bg: #0d0a16;
+      --lilac: #8e78c9;
+      --lilac-dark: #6f5aad;
+      --lilac-light: #bfa9f0;
       --text: #f5f5f5;
       --muted: #c4c4c4;
-      --border: rgba(255, 255, 255, 0.08);
-      --card: rgba(8, 16, 24, 0.9);
+      --border: rgba(255, 255, 255, 0.12);
     }
 
     * {
@@ -20,401 +20,221 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at top, #151a33 0, #050814 55%);
+      background: var(--bg);
       color: var(--text);
+      font-family: system-ui, sans-serif;
       line-height: 1.6;
     }
 
     a {
-      color: var(--accent);
+      color: var(--lilac-light);
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
 
-    /* ========= TOP NAV ========= */
+    /* -------- TOP NAV -------- */
     .top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
       background: #ffffff;
       color: #111827;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
 
     .top-nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.75rem 1.5rem;
+      padding: 0.9rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
     }
 
     .brand {
       font-weight: 600;
-      letter-spacing: 0.03em;
+      font-size: 1rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.4rem;
       font-size: 0.9rem;
     }
 
     .nav-links a {
-      color: inherit;
+      color: #111827;
       text-decoration: none;
       position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 100%;
-      height: 2px;
-      border-radius: 999px;
-      background: #111827;
-      opacity: 0;
-      transform: scaleX(0.6);
-      transition: opacity 0.15s ease, transform 0.15s ease;
+      padding-bottom: 0.2rem;
     }
 
     .nav-links a:hover::after {
-      opacity: 1;
-      transform: scaleX(1);
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 100%;
+      height: 2px;
+      background: #111827;
+      border-radius: 999px;
     }
 
-    .nav-icons {
-      display: flex;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    .nav-icons span {
-      cursor: default;
-    }
-
-    @media (max-width: 720px) {
-      .top-nav-inner {
-        padding-inline: 1.1rem;
-      }
-      .nav-links {
-        gap: 0.9rem;
-        font-size: 0.8rem;
-      }
-      .brand {
-        font-size: 0.95rem;
-      }
-    }
-
-    /* ========= HERO / PROFILE SECTION ========= */
+    /* -------- HERO SECTION -------- */
     .hero {
-      background: #064e3b;
-      color: #f9fafb;
-      padding: 2.8rem 1.5rem 3.4rem;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      background: var(--lilac-dark);
+      padding: 3rem 1.5rem 4rem;
+      color: #f9f9ff;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before,
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, rgba(0,0,0,0.15), transparent 55%),
-        radial-gradient(circle at 0 100%, rgba(0,0,0,0.15), transparent 55%);
-      opacity: 0.8;
+      background: linear-gradient(135deg, rgba(0,0,0,0.15), transparent 55%);
       pointer-events: none;
     }
 
     .hero-inner {
       max-width: 1100px;
       margin: 0 auto;
-      position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
       gap: 2.5rem;
-      align-items: center;
       z-index: 1;
+      position: relative;
     }
 
-    @media (max-width: 880px) {
-      .hero {
-        clip-path: none;
-        padding-bottom: 2.5rem;
-      }
+    @media (max-width: 900px) {
       .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
     .profile-card {
-      background: rgba(6, 78, 59, 0.92);
+      background: rgba(255, 255, 255, 0.12);
       border-radius: 1.25rem;
-      padding: 1.4rem 1.3rem 1.5rem;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 1.3rem 1.8rem;
       text-align: center;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
     }
 
     .profile-photo-wrap {
       width: 140px;
       height: 140px;
-      margin: 0 auto 0.9rem;
-      border-radius: 999px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
       overflow: hidden;
       border: 3px solid rgba(255, 255, 255, 0.9);
-      position: relative;
     }
 
     .profile-photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .profile-name {
+      font-size: 1.3rem;
       font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.2rem;
     }
 
     .profile-role {
-      font-size: 0.88rem;
-      opacity: 0.9;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      margin-bottom: 0.4rem;
     }
 
     .profile-sub {
-      font-size: 0.8rem;
-      opacity: 0.8;
-      margin-bottom: 0.9rem;
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
     }
 
     .profile-social {
       display: flex;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
       font-size: 0.9rem;
-      margin-top: 0.6rem;
     }
 
-    .profile-social a {
-      color: #e5e7eb;
-      text-decoration: none;
-      opacity: 0.8;
-    }
-
-    .profile-social a:hover {
-      opacity: 1;
-    }
-
+    /* -------- RIGHT SIDE OF HERO -------- */
     .about-block {
-      max-width: 640px;
+      max-width: 650px;
     }
 
     .hero-heading {
-      font-size: 1.8rem;
-      margin: 0 0 0.85rem;
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      font-weight: 600;
     }
 
     .hero-text {
-      font-size: 0.98rem;
+      font-size: 1rem;
       opacity: 0.95;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 0.6rem;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 0.45rem 1.1rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.6);
+      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
       font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(15, 23, 42, 0.2);
-      color: #f9fafb;
-      text-decoration: none;
+      backdrop-filter: blur(4px);
     }
 
     .btn:hover {
-      background: rgba(15, 23, 42, 0.35);
+      background: rgba(255,255,255,0.2);
     }
 
     .hero-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.4rem;
     }
 
     .hero-column h3 {
-      margin: 0 0 0.3rem;
-      font-size: 1rem;
+      margin: 0;
+      font-size: 1.05rem;
     }
 
     .hero-column ul {
-      margin: 0.2rem 0 0;
+      margin: 0.3rem 0 0;
       padding-left: 1.1rem;
       font-size: 0.9rem;
       opacity: 0.95;
     }
 
-    /* ========= MAIN PAGE SECTIONS (your old layout) ========= */
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.3rem 1.5rem 3rem;
-    }
-
-    .sections {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
-      gap: 1.75rem;
-    }
-
-    @media (max-width: 800px) {
-      .sections {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .page {
-        padding-inline: 1.1rem;
-      }
-    }
-
-    section {
-      margin-top: 1.5rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .card {
-      margin-top: 0.75rem;
-      padding: 1rem 1.1rem;
-      border-radius: 0.9rem;
-      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
-    }
-
-    .card + .card {
-      margin-top: 0.9rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 0.9rem;
-    }
-
-    .thumb {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0.8rem;
-      background: #0f1424;
-      border: 1px solid var(--border);
-      min-height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0.75rem;
-    }
-
-    .thumb img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-      filter: saturate(1.05);
-      transition: transform 0.4s ease, opacity 0.2s ease;
-    }
-
-    .thumb-overlay {
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(to top, rgba(5,8,20,0.9), transparent);
-      margin: -0.75rem;
-      padding: 0.75rem;
-    }
-
-    .thumb-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .thumb-meta {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .thumb:hover img {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-    }
-
-    .chip {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(5,8,20,0.8);
-      color: var(--muted);
-    }
-
-    ul {
-      margin: 0.4rem 0 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
+    /* -------- FOOTER -------- */
     footer {
-      margin-top: 2.5rem;
-      border-top: 1px solid var(--border);
-      padding: 0.9rem 1.5rem 1.2rem;
-      font-size: 0.8rem;
+      margin-top: -2rem;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.85rem;
       color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.75rem;
-      max-width: 1100px;
-      margin-inline: auto;
     }
   </style>
 </head>
+
 <body>
   <!-- TOP NAV -->
   <header class="top-nav">
@@ -425,22 +245,20 @@
         <a href="#characters">Characters</a>
         <a href="#worlds">Worlds</a>
         <a href="#process">Process</a>
-        <a href="#links">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <div class="nav-icons">
-        <span>☀︎</span>
-      </div>
+      <div class="nav-icons">☀︎</div>
     </div>
   </header>
 
   <!-- HERO / ABOUT -->
   <section class="hero" id="bio">
     <div class="hero-inner">
-      <!-- Left profile card -->
+
+      <!-- LEFT PROFILE CARD -->
       <div class="profile-card">
         <div class="profile-photo-wrap">
-          <!-- put your own image at images/profile.jpg or change the src -->
-          <img src="images/profile.jpg" alt="Profile photo">
+          <img src="images/profile.jpg" alt="Profile Photo">
         </div>
         <div class="profile-name">Morgan Alger</div>
         <div class="profile-role">Character & Environment Art</div>
@@ -453,194 +271,52 @@
         </div>
       </div>
 
-      <!-- Right about block -->
+      <!-- RIGHT TEXT BLOCK -->
       <div class="about-block">
         <h2 class="hero-heading">About Me</h2>
         <p class="hero-text">
           I’m a computer science student who loves the artistic side of game development.
-          This site is where I collect my character designs, environments, and experiments in
+          This is where I collect my character designs, environments, and experiments in
           building small worlds and moods.
         </p>
 
         <div class="hero-buttons">
-          <a class="btn" href="#characters">View Characters</a>
-          <a class="btn" href="#worlds">View Worlds</a>
+          <a class="btn" href="#characters">Characters</a>
+          <a class="btn" href="#worlds">Worlds</a>
         </div>
 
         <div class="hero-columns">
           <div class="hero-column">
             <h3>Interests</h3>
             <ul>
-              <li>Original characters & story-driven designs</li>
+              <li>Character design</li>
               <li>Environment mood & lighting</li>
-              <li>Game-inspired worlds and spaces</li>
+              <li>Worldbuilding</li>
             </ul>
           </div>
+
           <div class="hero-column">
             <h3>Currently</h3>
             <ul>
-              <li>Studying computer science & game dev</li>
-              <li>Practicing character / environment art</li>
-              <li>Building a portfolio of small projects</li>
+              <li>Studying CS & game dev</li>
+              <li>Practicing art techniques</li>
+              <li>Building a portfolio</li>
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- MAIN CONTENT (your gallery + sidebar) -->
-  <div class="page">
-    <div class="sections">
-      <!-- Main content -->
-      <main>
-        <!-- Characters -->
-        <section id="characters">
-          <h2>Characters</h2>
-          <div class="grid">
-            <article class="thumb">
-              <img src="images/character-1.png" alt="Character 1 illustration">
-              <div class="thumb-overlay">
-                <div class="thumb-title">Character Name #1</div>
-                <div class="thumb-meta">...TBD...</div>
-                <div class="chip-row">
-                  <span class="chip">Concept Art</span>
-                  <span class="chip">Character Design</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="thumb">
-              <img src="images/character-2.png" alt="Character 2 illustration">
-              <div class="thumb-overlay">
-                <div class="thumb-title">Character Name #2</div>
-                <div class="thumb-meta">...TBD...</div>
-                <div class="chip-row">
-                  <span class="chip">Turnaround</span>
-                  <span class="chip">Variants</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="thumb">
-              <img src="images/character-3.png" alt="Character 3 illustration">
-              <div class="thumb-overlay">
-                <div class="thumb-title">Character Name #3</div>
-                <div class="thumb-meta">...TBD...</div>
-                <div class="chip-row">
-                  <span class="chip">3D / Sculpt</span>
-                  <span class="chip">Game Ready</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Worlds / Environments -->
-        <section id="worlds">
-          <h2>Worlds & Environments</h2>
-          <div class="grid">
-            <article class="thumb">
-              <img src="images/environment-1.png" alt="Environment concept art">
-              <div class="thumb-overlay">
-                <div class="thumb-title">Environment Piece #1</div>
-                <div class="thumb-meta">...TBD...</div>
-                <div class="chip-row">
-                  <span class="chip">Environment Art</span>
-                  <span class="chip">Lighting</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="thumb">
-              <img src="images/environment-2.png" alt="Game level art">
-              <div class="thumb-overlay">
-                <div class="thumb-title">Environment Piece #2</div>
-                <div class="thumb-meta">...TBD...</div>
-                <div class="chip-row">
-                  <span class="chip">Level Design</span>
-                  <span class="chip">Game Engine</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Process -->
-        <section id="process">
-          <h2>Process & Sketches</h2>
-          <div class="card">
-            <p>
-              My process usually starts with rough sketches and broad shapes, then moves into refining
-              structure, lighting, and color. I build things up in layers and adjust as ideas change.
-            </p>
-            <ul>
-              <li>Exploring silhouettes and shapes</li>
-              <li>Building values and mood</li>
-              <li>Experimenting with color and details</li>
-              <li>Preparing pieces for games or other projects</li>
-            </ul>
-          </div>
-          <div class="card">
-            <p>
-              This section will eventually include sketch pages, progress shots, and breakdowns so you can
-              see how pieces grow from basic ideas to more finished artwork.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <!-- Sidebar -->
-      <aside>
-        <section id="about">
-          <h2>About Me</h2>
-          <div class="card">
-            <p>
-              I'm a computer science student focusing on game development and the artistic side of
-              interactive worlds. I enjoy creating characters, environments, and stories that could
-              live inside a game or animated series.
-            </p>
-            <p>
-              This portfolio is a work in progress — I'll keep adding new concepts, studies, and
-              finished pieces over time.
-            </p>
-          </div>
-        </section>
-
-        <section id="tools">
-          <h2>Tools</h2>
-          <div class="card">
-            <ul>
-              <li>Digital art (e.g. Procreate, Krita, Clip Studio)</li>
-              <li>3D (e.g. Blender for blocking out spaces/characters)</li>
-              <li>Game engines (Unity / Unreal) for environment tests</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="links">
-          <h2>Links & Contact</h2>
-          <div class="card">
-            <ul>
-              <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-              <li><a href="https://www.artstation.com/" target="_blank">ArtStation</a></li>
-              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
-              <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-            </ul>
-          </div>
-        </section>
-      </aside>
-    </div>
-
-    <footer>
-      <span>© <span id="year"></span> Morgan Alger</span>
-      <span>Built with GitHub Pages</span>
-    </footer>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Morgan Alger · Built with GitHub Pages
+  </footer>
 
   <script>
-    // Set current year automatically
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
