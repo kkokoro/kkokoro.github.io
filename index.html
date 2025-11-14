@@ -243,8 +243,11 @@
 
     .hero-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.4rem;
+      text-align: center;        /* center text */
+      justify-items: center;     /* center each column */
+      width: 100%;
     }
     .hero-column h3 { margin: 0; font-size: 1.05rem; }
     .hero-column ul {
