@@ -243,29 +243,27 @@
     
     .hero-columns {
       display: flex;
-      flex-direction: column;
+      flex-direction: column;   /* <- stack them vertically */
       gap: 1.4rem;
       width: 100%;
-      align-items: center;      /* centers the two blocks */
+      align-items: center;       /* center the whole blocks under the card */
       margin-top: 0.5rem;
     }
     
-    .hero-column {
-      width: 100%;
-      max-width: 260px;         /* <-- keeps them visually aligned with the card */
-    }
-    
+    /* center only the section titles */
     .hero-column h3 {
       text-align: center;
       margin-bottom: 0.4rem;
     }
     
+    /* left-align the bullet points for readability */
     .hero-column ul {
       text-align: left;
-      padding-left: 1.2rem;
+      padding-left: 1.2rem; 
       margin: 0;
       font-size: 0.9rem;
     }
+
     
     footer {
       text-align: center;
