@@ -132,6 +132,11 @@
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
     }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
 
     .profile-card {
       background: rgba(255, 255, 255, 0.28);       /* brighter + softer */
@@ -275,21 +280,58 @@
   </header>
 
   <section class="hero" id="bio">
-    <div class="hero-inner">
-  <div>
-    <div class="profile-card">
-      <div class="profile-photo-wrap">
-        <img src="images/profile.jpg" alt="Profile photo">
+  <div class="hero-inner">
+
+    <!-- LEFT SIDE: card + interests -->
+    <div class="hero-left">
+      <div class="profile-card">
+        <div class="profile-photo-wrap">
+          <img src="images/profile.jpg" alt="Profile photo">
+        </div>
+        <div class="profile-name">Morgan Alger</div>
+        <div class="profile-role">Game Dev · Worldbuilding · CS Student</div>
+        <div class="profile-sub">UNC Charlotte · CS (Game Dev, AI & Robotics)</div>
+        <div class="profile-social">
+          <a href="https://github.com/kkokoro" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a>
+        </div>
       </div>
-      <div class="profile-name">Morgan Alger</div>
-      <div class="profile-role">Game Dev · Worldbuilding · CS Student</div>
-      <div class="profile-sub">UNC Charlotte · CS (Game Dev, AI & Robotics)</div>
-      <div class="profile-social">
-        <a href="https://github.com/kkokoro" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a>
+
+      <div class="hero-columns">
+        <div class="hero-column">
+          <h3>Interests</h3>
+          <ul>
+            <li>Original characters & story-driven designs</li>
+            <li>Environment mood & lighting</li>
+            <li>Game-inspired worlds and spaces</li>
+          </ul>
+        </div>
+        <div class="hero-column">
+          <h3>Currently</h3>
+          <ul>
+            <li>Studying CS & game development</li>
+            <li>Practicing character / environment art</li>
+            <li>Building a portfolio of small projects</li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <!-- RIGHT SIDE: about + buttons -->
+    <div class="about-block">
+      <h2 class="hero-heading">About Me</h2>
+
+      <!-- your split paragraphs here -->
+      <!-- ... -->
+
+      <div class="hero-buttons">
+        <a class="btn" href="characters.html">Characters</a>
+        <a class="btn" href="worlds.html">Worlds</a>
+      </div>
+    </div>
+
   </div>
+</section>
 
       <div class="about-block">
         <h2 class="hero-heading">About Me</h2>
