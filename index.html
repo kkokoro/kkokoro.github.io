@@ -132,35 +132,66 @@
     }
 
     .profile-card {
-      background: rgba(255,255,255,0.12);
-      border-radius: 1.25rem;
-      padding: 1.5rem 1.3rem 1.8rem;
+      background: rgba(255, 255, 255, 0.28);       /* brighter + softer */
+      border-radius: 1.5rem;
+      padding: 2rem 2.4rem;                        /* more even spacing */
       text-align: center;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      backdrop-filter: blur(14px);                 /* stronger, cleaner glass */
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22); /* smoother shadow */
+      border: 1px solid rgba(255, 255, 255, 0.45); /* clean frosted border */
+    }
+    .profile-card:hover {
+      transform: translateY(-3px);
+      transition: 0.25s ease;
     }
     .profile-photo-wrap {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       margin: 0 auto 1rem;
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid rgba(255,255,255,0.9);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* small glow */
     }
     .profile-photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .profile-name { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.2rem; }
-    .profile-role { font-size: 0.9rem; margin-bottom: 0.4rem; }
-    .profile-sub { font-size: 0.85rem; opacity: 0.85; margin-bottom: 1rem; }
+    .profile-name { 
+      font-size: 1.35rem; 
+      font-weight: 600; 
+      margin: 0.4rem 0 0.3rem; 
+    }
+    .profile-role { 
+      font-size: 0.95rem; 
+      margin-bottom: 0.4rem; 
+      opacity: 0.85;
+    }
+    .profile-sub { 
+      font-size: 0.85rem; 
+      opacity: 0.75; 
+      margin-bottom: 1.2rem; 
+    }
     .profile-social {
       display: flex;
       justify-content: center;
-      gap: 0.8rem;
-      margin-top: 0.8rem;
+      gap: 1rem;
+      margin-top: 1.2rem;
       font-size: 0.9rem;
+    }
+    
+    .profile-social a {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: 0.2s ease;
+    }
+    
+    .profile-social a:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
     }
 
     .about-block { max-width: 650px; }
