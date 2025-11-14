@@ -245,16 +245,16 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.4rem;
-      text-align: center;        /* center text */
-      justify-items: center;     /* center each column */
-      width: 100%;
+      justify-items: center;
     }
-    .hero-column h3 { margin: 0; font-size: 1.05rem; }
+    
+    .hero-column h3 {
+      text-align: center;
+    }
+    
     .hero-column ul {
-      margin: 0.3rem 0 0;
+      text-align: left;     /* bullets left-aligned */
       padding-left: 1.1rem;
-      font-size: 0.9rem;
-      opacity: 0.95;
     }
 
     footer {
