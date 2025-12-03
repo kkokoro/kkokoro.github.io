@@ -4,138 +4,101 @@
   <meta charset="UTF-8" />
   <title>Morgan Alger · Characters</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-panel: rgba(255, 255, 255, 0.78);
-      --bg-accent: rgba(92, 142, 255, 0.22); /* the blue block */
-      --text-dark: #000000;
-      --text-light: #444;
+      --bg: #ffffff;
+      --text: #000;
     }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
-      background: url('https://i.pinimg.com/1200x/c2/9a/d9/c29ad93c7ddc9a17cc6d591b7c7b01c3.jpg')
-        center/cover fixed no-repeat;
-      color: var(--text-dark);
+      background: #ffffff;
+      color: #000;
     }
 
     /* NAVIGATION */
     .top-nav {
-      background: white;
-      color: #111;
+      background: #ffffff;
+      color: #000;
       position: sticky;
       top: 0;
-      z-index: 20;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-
     .top-nav-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.9rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .brand {
-      font-weight: 600;
-      color: #000;
-    }
-
     .nav-links {
       display: flex;
-      gap: 1.4rem;
+      gap: 2.1rem;
     }
-
     .nav-links a {
       color: #000;
-      position: relative;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
       text-decoration: none;
     }
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
 
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -0.25rem;
-      left: 0;
+    /* HEADER / TITLE */
+    .page-header {
       width: 100%;
-      height: 2px;
-      background: #000;
-      border-radius: 999px;
+      background: #ffffff;
+      padding: 3rem 1rem 1rem 1rem;
+      text-align: center;
     }
 
-    /* HERO SECTION */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 5rem 1.5rem;
-      position: relative;
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
     }
 
-    /* blue block background (same as index) */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      width: 80%;
-      max-width: 1000px;
-      margin: auto;
-      height: 75%;
-      background: var(--bg-accent);
-      border-radius: 22px;
-      filter: blur(6px);
-      z-index: 1;
-    }
-
-    .hero-inner {
+    /* MAIN PANEL */
+    .content-section {
       max-width: 900px;
-      width: 90%;
-      margin: 0 auto;
-      background: var(--bg-panel);
+      margin: 2rem auto 4rem;
+      background: rgba(255, 255, 255, 0.78);
       padding: 2.8rem 2.4rem;
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      backdrop-filter: blur(4px);
-      position: relative;
-      z-index: 2;
     }
 
-    .hero-heading {
-      font-size: 2.3rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .hero-text {
-      font-size: 1.06rem;
-      line-height: 1.65;
-      color: var(--text-light);
-      max-width: 650px;
-      margin: 0 auto;
-      text-align: center;
+    .content-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
     }
 
     /* FOOTER */
     footer {
       text-align: center;
-      margin: 1.8rem 0;
-      padding: 0;
-      background: transparent;
+      margin: 2rem 0;
+      font-size: 0.9rem;
       color: #000;
-      font-size: 0.85rem;
     }
   </style>
 </head>
 
 <body>
+
   <!-- NAV -->
   <header class="top-nav">
     <div class="top-nav-inner">
@@ -150,18 +113,22 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-heading">Characters</h1>
-      <p class="hero-text">
-        This page will showcase my character artwork and designs. I’ll add finished pieces,
-        explorations, and notes about who these characters are and the worlds they belong to.
-        As I create more, I’ll update this section with new characters, sketches, and concepts.
-      </p>
-    </div>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Characters</h1>
   </section>
 
+  <!-- MAIN CONTENT PANEL -->
+  <section class="content-section">
+    <p>
+      This page will showcase my character artwork and designs. I’ll add finished
+      pieces, explorations, and notes about who these characters are and the worlds
+      they belong to. As I create more, I’ll update this section with new characters,
+      sketches, and concepts.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Morgan Alger · Built with GitHub Pages
   </footer>
@@ -169,5 +136,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
