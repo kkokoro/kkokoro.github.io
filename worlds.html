@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Morgan Alger · Worlds</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -12,19 +12,20 @@
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
 
-      /* Match index.html background */
-      background: linear-gradient(135deg, #1e3a8a, #60a5fa);
+      /* MATCHES character + contact pages */
+      background: linear-gradient(135deg, #4b0082, #8a2be2, #c084fc);
       background-attachment: fixed;
       color: #000;
     }
 
-    /* NAV */
+    /* NAVIGATION */
     .top-nav {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.9);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      backdrop-filter: blur(6px);
     }
 
     .top-nav-inner {
@@ -39,6 +40,7 @@
     .brand {
       font-weight: 600;
       color: #000;
+      font-size: 1.1rem;
     }
 
     .nav-links {
@@ -65,35 +67,37 @@
       border-radius: 999px;
     }
 
-    /* CARD CONTAINER */
+    /* CONTENT CARD — MATCHES CHARACTERS + CONTACT */
     .card-wrapper {
       max-width: 850px;
       margin: 4rem auto;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 18px;
-      padding: 2.2rem 2.4rem;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       margin-top: 0;
       font-weight: 600;
     }
 
     .hero-text {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       max-width: 700px;
       opacity: 0.95;
-      margin-top: 1rem;
-      line-height: 1.6;
+      margin-top: 1.2rem;
+      line-height: 1.65;
     }
 
     footer {
       text-align: center;
-      color: #000;
+      color: #fff;
       margin: 2rem 0;
       font-size: 0.85rem;
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -120,9 +124,10 @@
     <h1>Worlds & Environments</h1>
 
     <p class="hero-text">
-      This page will focus on the worlds behind my characters — environments, locations,
-      and mood pieces. I’ll add concept art, maps, and in-engine screenshots as I build
-      out different spaces and experiment with lighting, atmosphere, and level ideas.
+      This page explores the worlds behind my characters — the environments, locations, 
+      lighting tests, and atmosphere concepts that shape each story. As I continue 
+      developing the game, I will add sketches, mood paintings, biome ideas, and 
+      in-engine environment tests.
     </p>
   </div>
 
