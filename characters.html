@@ -23,48 +23,74 @@
       color: #000;
     }
 
-    /* CHARACTER CARDS GRID */
+    /* CARD GRID */
     .card-grid {
       margin-top: 2.5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
-    
-    .art-card {
-      background: #ffffff;
+
+    /* FLIP CARD */
+    .flip-card {
+      width: 100%;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
       border-radius: 16px;
-      padding: 1.2rem;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-    
-    .art-card .placeholder {
+
+    /* Hover flip for desktop */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Click flip for mobile */
+    .flip-card.flip .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* FRONT + BACK shared */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
       width: 100%;
-      height: 210px;
-      background: #f2f2f2;
-      border-radius: 12px;
-      border: 2px dashed #ccc;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      color: #777;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+      padding: 1rem;
     }
-    
-    .art-card textarea {
-      width: 100%;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 0.6rem;
-      resize: vertical;
-      min-height: 70px;
-      font-family: "Ubuntu", sans-serif;
-      font-size: 0.9rem;
+
+    /* FRONT */
+    .flip-card-front {
+      background: #eaeaea;
+      color: #777;
+      font-size: 1.1rem;
+    }
+
+    /* BACK */
+    .flip-card-back {
+      background: #ffffff;
       color: #444;
+      transform: rotateY(180deg);
+      border: 1px solid #ddd;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      padding: 1.2rem;
     }
 
     /* NAVIGATION */
@@ -115,7 +141,7 @@
       color: #2f2f2f;
     }
 
-    /* MAIN PANEL */
+    /* MAIN CONTENT PANEL */
     .content-section {
       max-width: 900px;
       margin: 2rem auto 4rem;
@@ -170,26 +196,45 @@
       they belong to. As I create more, I’ll update this section.
     </p>
 
+    <!-- CARD GRID -->
     <div class="card-grid">
 
       <!-- CARD 1 -->
-      <div class="art-card">
-        <div class="placeholder">Image Placeholder</div>
-        <textarea placeholder="Write a caption or description..."></textarea>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Image Here
+          </div>
+          <div class="flip-card-back">
+            Character description goes here.
+          </div>
+        </div>
       </div>
-    
+
       <!-- CARD 2 -->
-      <div class="art-card">
-        <div class="placeholder">Image Placeholder</div>
-        <textarea placeholder="Write a caption or description..."></textarea>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Image Here
+          </div>
+          <div class="flip-card-back">
+            Description for a second character.
+          </div>
+        </div>
       </div>
-    
+
       <!-- CARD 3 -->
-      <div class="art-card">
-        <div class="placeholder">Image Placeholder</div>
-        <textarea placeholder="Write a caption or description..."></textarea>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            Image Here
+          </div>
+          <div class="flip-card-back">
+            More character information...
+          </div>
+        </div>
       </div>
-    
+
     </div>
 
   </section>
@@ -201,6 +246,13 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Enable click-to-flip on mobile
+    document.querySelectorAll(".flip-card").forEach(card => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("flip");
+      });
+    });
   </script>
 
 </body>
