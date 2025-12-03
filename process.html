@@ -4,116 +4,119 @@
   <meta charset="UTF-8" />
   <title>Morgan Alger · Process</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
-
-      /* Match index.html background */
-      background: linear-gradient(135deg, #1e3a8a, #60a5fa);
-      background-attachment: fixed;
+      background: #ffffff;
       color: #000;
     }
 
-    /* NAV */
+    /* NAVIGATION */
     .top-nav {
       background: #ffffff;
+      color: #000;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-
     .top-nav-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.9rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .brand {
-      font-weight: 600;
-      color: #000;
-    }
-
     .nav-links {
       display: flex;
-      gap: 1.4rem;
+      gap: 2.1rem;
     }
-
     .nav-links a {
       color: #000;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
       text-decoration: none;
-      position: relative;
-      font-weight: 500;
     }
-
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -0.25rem;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #000;
-      border-radius: 999px;
-    }
-
-    /* CARD CONTAINER */
-    .card-wrapper {
-      max-width: 850px;
-      margin: 4rem auto;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 18px;
-      padding: 2.2rem 2.4rem;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2.2rem;
+    .nav-links a.active {
       font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
     }
 
-    .hero-text {
+    /* PAGE HEADER */
+    .page-header {
+      width: 100%;
+      background: #ffffff;
+      padding: 3rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
+    }
+
+    /* MAIN CONTENT PANEL */
+    .content-section {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 2.8rem 2.4rem;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .content-section p {
       font-size: 1.05rem;
-      margin-bottom: 1.4rem;
-      opacity: 0.95;
-      max-width: 700px;
+      line-height: 1.7;
+      color: #444;
     }
 
-    .hero-list {
-      font-size: 1rem;
+    .content-section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+      color: #444;
+    }
+
+    .content-section strong {
+      display: block;
       margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2f2f2f;
     }
 
-    .hero-list ul {
-      padding-left: 1.1rem;
-      margin: 0.4rem 0 0;
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
-      color: #000;
       margin: 2rem 0;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      color: #000;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="brand">Morgan Alger</div>
-
       <nav class="nav-links">
         <a href="index.html">Bio</a>
         <a href="characters.html">Characters</a>
@@ -124,28 +127,27 @@
     </div>
   </header>
 
-  <!-- CONTENT CARD -->
-  <div class="card-wrapper">
+  <!-- PAGE HEADER -->
+  <section class="page-header">
     <h1>Process</h1>
+  </section>
 
-    <p class="hero-text">
+  <!-- MAIN CONTENT PANEL -->
+  <section class="content-section">
+    <p>
       This page is for the behind-the-scenes side of my work. I’ll use it to show how pieces
-      grow from rough ideas into more finished characters and environments, including sketches,
-      thumbnails, and experiments.
+      grow from rough ideas into more finished characters and environments.
     </p>
 
-    <div class="hero-list">
-      <strong>Things I’ll include here over time:</strong>
-      <ul>
-        <li>Silhouette and gesture sketches</li>
-        <li>Value and lighting studies</li>
-        <li>Color tests and mood variations</li>
-        <li>Progress shots from first pass to final render</li>
-        <li>Occasional notes on what I learned from each piece</li>
-      </ul>
-    </div>
-  </div>
+    <strong>Things I’ll include here over time:</strong>
+    <ul>
+      <li>Silhouette and gesture sketches</li>
+      <li>Progress shots from first pass to final render</li>
+      <li>Occasional notes on what I learned from each piece</li>
+    </ul>
+  </section>
 
+  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Morgan Alger · Built with GitHub Pages
   </footer>
@@ -156,3 +158,4 @@
 
 </body>
 </html>
+
