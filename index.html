@@ -4,277 +4,114 @@
   <meta charset="UTF-8" />
   <title>Morgan Alger · Bio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0d0a16;
-      --lilac-dark: #5f4a9a;
-      --lilac-mid: #7b65c9;
-      --lilac-light: #bfa9f0;
-      --text: #f5f5f5;
-      --muted: #c4c4c4;
-      --border: rgba(255,255,255,0.12);
+      --bg: #ffffff; /* ★ NEW: white hero background */
+      --text: #000;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      color: #000000;
       font-family: "Ubuntu", sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    
-      /* just the image, no color on top */
-      background: url('https://t3.ftcdn.net/jpg/03/34/39/04/360_F_334390455_Mkt1YqtXEiCtOCbpNTeGENHMIl3sDPmP.jpg')
-        center/cover fixed no-repeat;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin: 0 0 0.6rem;
-    }
-    
-    h2 {
-      font-size: 1.6rem;
-      margin: 0 0 0.75rem;
-    }
-    
-    h3 {
-      font-size: 1.1rem;
-      margin: 0 0 0.4rem;
-    }
-    
-    p {
-      line-height: 1.6;
-      margin: 0 0 1rem;
+      color: #000;
+
+      /* ★ REMOVED your dark galaxy wallpaper */
+      background: #ffffff;
     }
 
-    a {
-      color: #000000;
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-
-    /* --- top nav --- */
+    /* ---------------- NAV ---------------- */
     .top-nav {
       background: #ffffff;
-      color: #111827;
+      color: #000;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
     .top-nav-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.9rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-    }
-    .brand {
-      font-weight: 600;
-      color: #000000;
+      align-items: center;
     }
     .nav-links {
       display: flex;
-      gap: 1.4rem;
-      font-size: 0.9rem;
+      gap: 2.1rem;
     }
     .nav-links a {
-      color: #000000;
-      position: relative;
-    }
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.25rem;
-      width: 100%;
-      height: 2px;
-      background: #111827;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-    .nav-icons { font-size: 0.9rem; opacity: 0.8; }
-
-    @media (max-width: 720px) {
-      .top-nav-inner { padding-inline: 1.1rem; }
-      .nav-links { gap: 0.8rem; font-size: 0.8rem; }
+      color: #000;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
-    /* --- hero --- */
+    /* ---------------- HERO ---------------- */
     .hero {
-      min-height: 100vh;     /* keeps long page + scroll */
-      display: flex;
-      align-items: flex-start; /* stops the content from being vertically centered */
-      padding: 3.5rem 1.5rem;
-    }
-    .hero a {
-      color: #000000 !important;
-    }
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
-      gap: 2.5rem;
-      position: relative;
-      z-index: 1;
-      align-items: flex-start;   /* <– add this */
-    }
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-    }
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
+      width: 100%;
+      background: #ffffff;
+      padding: 3rem 1rem 1rem 1rem;
     }
 
-    .profile-card {
-      background: rgba(255, 255, 255, 0.28);       /* brighter + softer */
-      border-radius: 1.5rem;
-      padding: 2rem 2.4rem;                        /* more even spacing */
+    /* ★ NEW: Hero image centered & large */
+    .hero-image-wrapper {
       text-align: center;
-      backdrop-filter: blur(14px);                 /* stronger, cleaner glass */
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22); /* smoother shadow */
-      border: 1px solid rgba(255, 255, 255, 0.45); /* clean frosted border */
-    }
-    .profile-card:hover {
-      transform: translateY(-3px);
-      transition: 0.25s ease;
-    }
-    .profile-photo-wrap {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* small glow */
-    }
-    .profile-photo-wrap img {
       width: 100%;
-      height: 100%;
+      margin-top: 1rem;
+    }
+
+    .hero-image {
+      width: 75%;
+      max-width: 700px;
+      border-radius: 0;
       object-fit: cover;
     }
-    .profile-name { 
-      font-size: 1.35rem; 
-      font-weight: 600; 
-      margin: 0.4rem 0 0.3rem; 
-    }
-    .profile-role { 
-      font-size: 0.95rem; 
-      margin-bottom: 0.4rem; 
-      opacity: 0.85;
-    }
-    .profile-sub { 
-      font-size: 0.85rem; 
-      opacity: 0.75; 
-      margin-bottom: 1.2rem; 
-    }
-    .profile-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
-    }
-    
-    .profile-social a {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      transition: 0.2s ease;
-    }
-    
-    .profile-social a:hover {
-      background: rgba(255, 255, 255, 0.4);
-      transform: translateY(-1px);
+
+    /* hide your old grid hero layout */
+    .hero-inner {
+      display: none; /* ★ NEW: we hide the old bio-card layout from hero */
     }
 
-    .about-block { max-width: 650px; }
-    .hero-heading { font-size: 2rem; margin: 0 0 1rem; }
-    .hero-text { font-size: 1rem; margin-bottom: 1.5rem; }
-
-    .hero-buttons {
-      display: flex;
-      gap: 0.75rem;
-      margin: 1.2rem 0 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .btn {
-      padding: 0.55rem 1.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.75);
-      background: rgba(255,255,255,0.15);       /* transparent but visible */
-      color: #000000;                            /* black text */
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      backdrop-filter: blur(4px);                /* subtle glass feel */
-      transition:
-        background 0.18s ease,
-        border-color 0.18s ease,
-        transform 0.12s ease,
-        box-shadow 0.12s ease;
-    }
-    
-    .btn:hover {
-      background: rgba(255,255,255,0.25);
-      border-color: rgba(255,255,255,1);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    }
-    
-    .hero-columns {
-      display: flex;
-      flex-direction: column;   /* <- stack them vertically */
-      gap: 1.4rem;
-      width: 100%;
-      align-items: center;       /* center the whole blocks under the card */
-      margin-top: 0.5rem;
-    }
-    
-    /* center only the section titles */
-    .hero-column h3 {
+    /* ---------------- WELCOME SECTION ---------------- */
+    .welcome-section {
+      background: #e8f1fb; /* pastel blue like example */
+      padding: 60px 20px 80px;
       text-align: center;
-      margin-bottom: 0.4rem;
-    }
-    
-    /* left-align the bullet points for readability */
-    .hero-column ul {
-      text-align: left;
-      padding-left: 1.2rem; 
-      margin: 0;
-      font-size: 0.9rem;
     }
 
-    
+    .welcome-section h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: #2f2f2f;
+    }
+
+    .welcome-section p {
+      max-width: 720px;
+      margin: 0.5rem auto;
+      font-size: 1.05rem;
+      color: #5a5a5a;
+      line-height: 1.7;
+    }
+
     footer {
       text-align: center;
-      margin: 1.5rem 0 1.5rem;  /* small spacing above/below */
-      padding: 0;
-      background: transparent;  /* no white bar */
-      color: #000000;           /* keep text black, or #ffffff if you prefer */
-      font-size: 0.85rem;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #000;
     }
   </style>
 </head>
+
 <body>
+
+  <!-- NAV -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="brand">Morgan Alger</div>
@@ -289,80 +126,26 @@
     </div>
   </header>
 
-  <section class="hero" id="bio">
-  <div class="hero-inner">
-
-    <!-- LEFT SIDE: card + interests -->
-    <div class="hero-left">
-      <div class="profile-card">
-        <div class="profile-photo-wrap">
-          <img src="images/profile.jpg" alt="Profile photo">
-        </div>
-        <div class="profile-name">Morgan Alger</div>
-        <div class="profile-role">Game Dev · Worldbuilding · CS Student</div>
-        <div class="profile-sub">UNC Charlotte · CS (Game Dev, AI & Robotics)</div>
-        <div class="profile-social">
-          <a href="https://github.com/kkokoro" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a>
-        </div>
-      </div>
-
-      <div class="hero-columns">
-        <div class="hero-column">
-          <h3>Interests</h3>
-          <ul>
-            <li>Original characters & story-driven designs</li>
-            <li>Environment mood & lighting</li>
-            <li>Game-inspired worlds and spaces</li>
-          </ul>
-        </div>
-        <div class="hero-column">
-          <h3>Currently</h3>
-          <ul>
-            <li>Studying CS & game development</li>
-            <li>Practicing character / environment art</li>
-            <li>Building a portfolio of small projects</li>
-          </ul>
-        </div>
-      </div>
+  <!-- ★ NEW CLEAN HERO LIKE EXAMPLE -->
+  <section class="hero">
+    <div class="hero-image-wrapper">
+      <img src="images/profile.jpg" class="hero-image" alt="">
     </div>
+  </section>
 
-    <!-- RIGHT SIDE: about + buttons -->
-    <div class="about-block">
-      <h2 class="hero-heading">About Me</h2>
+  <!-- ★ NEW WELCOME SECTION -->
+  <section class="welcome-section">
+    <h1>Welcome!</h1>
+    <p>
+      This is a place where I share my characters, worlds, creative process,
+      and the things I’m building as a game development & worldbuilding student.
+    </p>
+    <p>
+      Explore my portfolio and follow along as I bring new ideas to life.
+    </p>
+  </section>
 
-      <p class="hero-text">
-        I’m a senior Computer Science student at UNC Charlotte, with a focus on Game Development, AI, and Robotics.
-        I’m especially passionate about the artistic side of game creation; character design, worldbuilding and storytelling
-        through visuals that brings a game's atmosphere and narrative to life.
-      </p>
-
-      <p class="hero-text">
-        Right now I work with Unity, Fusion, and Blender to bring ideas to life, working across 2D/3D art, character design, and environment 
-        modeling. I also have experience programming in Python, Java, C, and C++, which helps me understand how art connects with gameplay and 
-        how to bring ideas into an actual game engine.
-      </p>
-
-      <p class="hero-text">
-        Outside of development, I enjoy learning and exploring new creative outlets like sketching characters, studying art styles, 
-        language learning, and finding inspiration in nature. These experiences broaden my persepective and influence the way I
-        design characters, environements and the worlds they belong to.
-      </p>
-
-      <p class="hero-text">
-        My goal is to grow as a game artist and designer and to create work that is visually expressive, thoughtfully made, and 
-        connected to the ideas and expereinces that inspire me most. 
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn" href="characters.html">Characters</a>
-        <a class="btn" href="worlds.html">Worlds</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Morgan Alger · Built with GitHub Pages
   </footer>
@@ -370,5 +153,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
