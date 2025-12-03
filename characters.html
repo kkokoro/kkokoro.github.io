@@ -23,6 +23,50 @@
       color: #000;
     }
 
+    /* CHARACTER CARDS GRID */
+    .card-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.8rem;
+    }
+    
+    .art-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .art-card .placeholder {
+      width: 100%;
+      height: 210px;
+      background: #f2f2f2;
+      border-radius: 12px;
+      border: 2px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .art-card textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 0.6rem;
+      resize: vertical;
+      min-height: 70px;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
     /* NAVIGATION */
     .top-nav {
       background: #ffffff;
@@ -125,6 +169,29 @@
       pieces and notes about who these characters are and the worlds
       they belong to. As I create more, I’ll update this section.
     </p>
+
+    <div class="card-grid">
+
+      <!-- CARD 1 -->
+      <div class="art-card">
+        <div class="placeholder">Image Placeholder</div>
+        <textarea placeholder="Write a caption or description..."></textarea>
+      </div>
+    
+      <!-- CARD 2 -->
+      <div class="art-card">
+        <div class="placeholder">Image Placeholder</div>
+        <textarea placeholder="Write a caption or description..."></textarea>
+      </div>
+    
+      <!-- CARD 3 -->
+      <div class="art-card">
+        <div class="placeholder">Image Placeholder</div>
+        <textarea placeholder="Write a caption or description..."></textarea>
+      </div>
+    
+    </div>
+
   </section>
 
   <!-- FOOTER -->
