@@ -76,67 +76,33 @@
       gap: 2rem;
     }
 
-    /* FLIP CARD */
-    .flip-card {
-      width: 100%;
-      aspect-ratio: 3/4;
-      perspective: 1000px;
-      cursor: pointer;
-    }
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
+    /* CARD */
+    .card {
+      background: #fff;
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-    .flip-card:hover .flip-card-inner { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
-    .flip-card.flip .flip-card-inner { transform: rotateY(180deg); }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 16px;
       overflow: hidden;
+      cursor: pointer;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .flip-card-front { background: #eaeaea; color: #777; }
-    .flip-card-front img {
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+    .card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
+      height: auto;
       display: block;
+      object-fit: cover;
     }
-    .flip-card-front::after {
-      content: "View Artwork";
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(0,0,0,0.65);
-      color: #fff;
-      padding: 0.4rem 0.6rem;
-      font-size: 0.75rem;
-      border-radius: 6px;
-    }
-    .flip-card-back {
-      background: #ffffff;
-      color: #444;
-      transform: rotateY(180deg);
-      border: 1px solid #ddd;
+    .card-description {
+      padding: 1rem;
       font-size: 0.95rem;
-      line-height: 1.5;
-      padding: 1.2rem;
+      color: #444;
       text-align: center;
+      background: rgba(255,255,255,0.95);
     }
 
     /* MODAL */
@@ -217,38 +183,31 @@
 
   <div class="card-grid">
     <!-- CARD 1 -->
-    <div class="flip-card" tabindex="0" role="button"
+    <div class="card" tabindex="0" role="button"
          data-image="images/character1.jpg"
          data-title="Character One"
          data-description="Full description of Character One.">
-      <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character1.jpg" alt="Character One" loading="lazy"></div>
-        <div class="flip-card-back"><p>Description of Character One</p></div>
-      </div>
+      <img src="images/character1.jpg" alt="Character One" loading="lazy">
+      <div class="card-description">Short description of Character One</div>
     </div>
 
     <!-- CARD 2 -->
-    <div class="flip-card" tabindex="0" role="button"
+    <div class="card" tabindex="0" role="button"
          data-image="images/character2.jpg"
          data-title="Character Two"
          data-description="Full description of Character Two.">
-      <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character2.jpg" alt="Character Two" loading="lazy"></div>
-        <div class="flip-card-back"><p>Description of Character Two</p></div>
-      </div>
+      <img src="images/character2.jpg" alt="Character Two" loading="lazy">
+      <div class="card-description">Short description of Character Two</div>
     </div>
 
     <!-- CARD 3 -->
-    <div class="flip-card" tabindex="0" role="button"
+    <div class="card" tabindex="0" role="button"
          data-image="images/character3.jpg"
          data-title="Character Three"
          data-description="Full description of Character Three.">
-      <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character3.jpg" alt="Character Three" loading="lazy"></div>
-        <div class="flip-card-back"><p>Description of Character Three</p></div>
-      </div>
+      <img src="images/character3.jpg" alt="Character Three" loading="lazy">
+      <div class="card-description">Short description of Character Three</div>
     </div>
-
   </div>
 </section>
 
@@ -278,7 +237,7 @@ const modalImg = document.getElementById("modalImage");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDescription");
 const closeBtn = document.querySelector(".art-modal-close");
-const cards = Array.from(document.querySelectorAll(".flip-card"));
+const cards = Array.from(document.querySelectorAll(".card"));
 const nextBtn = document.querySelector(".modal-arrow.next");
 const prevBtn = document.querySelector(".modal-arrow.prev");
 
