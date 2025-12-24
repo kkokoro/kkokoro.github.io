@@ -8,10 +8,71 @@
 
   <style>
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
       background: #D7F5D3;
+      color: #000;
+    }
+
+    /* NAV */
+    .top-nav {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .top-nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
+
+    /* HEADER */
+    .page-header {
+      padding: 3rem 1rem 1rem;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    /* CONTENT PANEL */
+    .content-section {
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      background: rgba(255,255,255,0.78);
+      padding: 2.8rem 2.4rem;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
 
     /* GRID */
@@ -25,7 +86,7 @@
     /* CARD */
     .flip-card {
       width: 100%;
-      aspect-ratio: 3 / 4; /* 🔒 portrait lock */
+      aspect-ratio: 3 / 4;   /* 🔒 prevents rectangle stretch */
       perspective: 1000px;
       cursor: pointer;
     }
@@ -55,6 +116,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
     }
 
     .flip-card-front img {
@@ -64,9 +126,10 @@
     }
 
     .flip-card-back {
-      background: #fff;
+      background: #ffffff;
       transform: rotateY(180deg);
-      padding: 1.2rem;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
       text-align: center;
     }
 
@@ -81,7 +144,9 @@
       z-index: 999;
     }
 
-    .art-modal.active { display: flex; }
+    .art-modal.active {
+      display: flex;
+    }
 
     .art-modal-content {
       background: #fff;
@@ -118,56 +183,93 @@
         grid-template-columns: 1fr;
       }
     }
+
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
 <body>
 
-<section class="card-grid">
-
-  <div class="flip-card"
-       data-image="images/character1.jpg"
-       data-title="Title"
-       data-description="Description">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/character1.jpg" alt="Title">
-      </div>
-      <div class="flip-card-back">
-        Click to view full artwork
-      </div>
-    </div>
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand">Morgan Alger</div>
+    <nav class="nav-links">
+      <a href="index.html">Bio</a>
+      <a href="characters.html" class="active">Characters</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="process.html">Concept Art</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
+</header>
 
-  <div class="flip-card"
-       data-image="images/character2.jpg"
-       data-title="Title"
-       data-description="Description">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/character2.jpg" alt="Title">
-      </div>
-      <div class="flip-card-back">
-        Click to view full artwork
-      </div>
-    </div>
-  </div>
-
-  <div class="flip-card"
-       data-image="images/character3.jpg"
-       data-title="Title"
-       data-description="Description">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/character3.jpg" alt="Title">
-      </div>
-      <div class="flip-card-back">
-        Click to view full artwork
-      </div>
-    </div>
-  </div>
-
+<section class="page-header">
+  <h1>Characters</h1>
 </section>
+
+<section class="content-section">
+  <p>
+    This page showcases my character artwork and designs. I’ll continue to add finished
+    pieces and notes about who these characters are and the worlds they belong to.
+  </p>
+
+  <div class="card-grid">
+
+    <!-- CARD 1 -->
+    <div class="flip-card"
+         data-image="images/character1.jpg"
+         data-title="Title"
+         data-description="Description">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/character1.jpg" alt="Title">
+        </div>
+        <div class="flip-card-back">
+          Click to view full artwork
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="flip-card"
+         data-image="images/character2.jpg"
+         data-title="Title"
+         data-description="Description">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/character2.jpg" alt="Title">
+        </div>
+        <div class="flip-card-back">
+          Click to view full artwork
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flip-card"
+         data-image="images/character3.jpg"
+         data-title="Title"
+         data-description="Description">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/character3.jpg" alt="Title">
+        </div>
+        <div class="flip-card-back">
+          Click to view full artwork
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Morgan Alger · Built with GitHub Pages
+</footer>
 
 <!-- MODAL -->
 <div id="artModal" class="art-modal">
@@ -182,6 +284,8 @@
 </div>
 
 <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
   const modal = document.getElementById("artModal");
   const modalImg = document.getElementById("modalImage");
   const modalTitle = document.getElementById("modalTitle");
@@ -200,8 +304,14 @@
     });
   });
 
-  closeBtn.onclick = () => modal.classList.remove("active");
-  modal.onclick = e => e.target === modal && modal.classList.remove("active");
+  closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+  modal.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.remove("active");
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") modal.classList.remove("active");
+  });
 </script>
 
 </body>
