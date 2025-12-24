@@ -7,11 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #000;
-    }
-
+    :root { --bg: #ffffff; --text: #000; }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
@@ -26,7 +22,6 @@
     /* NAVIGATION */
     .top-nav {
       background: #ffffff;
-      color: #000;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -40,21 +35,9 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-links {
-      display: flex;
-      gap: 2.1rem;
-    }
-    .nav-links a {
-      color: #000;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-    .nav-links a.active {
-      font-weight: 600;
-      border-bottom: 2px solid #000;
-      padding-bottom: 3px;
-    }
+    .nav-links { display: flex; gap: 2.1rem; }
+    .nav-links a { color: #000; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
+    .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
 
     /* HEADER */
     .page-header {
@@ -70,11 +53,11 @@
       color: #2f2f2f;
     }
 
-    /* MAIN CONTENT PANEL */
+    /* MAIN CONTENT */
     .content-section {
       max-width: 1200px;
       margin: 2rem auto 4rem;
-      background: rgba(255, 255, 255, 0.78);
+      background: rgba(255,255,255,0.78);
       padding: 2.8rem 2.4rem;
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
@@ -96,7 +79,7 @@
     /* FLIP CARD */
     .flip-card {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 3/4;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -110,12 +93,9 @@
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
-    .flip-card:hover .flip-card-inner {
-      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-    }
-    .flip-card.flip .flip-card-inner {
-      transform: rotateY(180deg);
-    }
+    .flip-card:hover .flip-card-inner { box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+    .flip-card.flip .flip-card-inner { transform: rotateY(180deg); }
+
     .flip-card-front,
     .flip-card-back {
       position: absolute;
@@ -129,10 +109,7 @@
       justify-content: center;
       padding: 1rem;
     }
-    .flip-card-front {
-      background: #eaeaea;
-      color: #777;
-    }
+    .flip-card-front { background: #eaeaea; color: #777; }
     .flip-card-front img {
       width: 100%;
       height: 100%;
@@ -156,8 +133,8 @@
       color: #444;
       transform: rotateY(180deg);
       border: 1px solid #ddd;
-      line-height: 1.5;
       font-size: 0.95rem;
+      line-height: 1.5;
       padding: 1.2rem;
       text-align: center;
     }
@@ -191,49 +168,21 @@
       transform: scale(0.95);
       transition: transform 0.35s ease;
     }
-    .art-modal.active .art-modal-content {
-      transform: scale(1);
-    }
-    .art-modal img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .art-modal-text {
-      padding: 2rem;
-      overflow-y: auto;
-    }
-    .art-modal-text h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-    .art-modal-close {
-      position: absolute;
-      top: 10px;
-      right: 18px;
-      font-size: 2rem;
-      cursor: pointer;
-    }
+    .art-modal.active .art-modal-content { transform: scale(1); }
+    .art-modal img { width: 100%; height: 100%; object-fit: cover; }
+    .art-modal-text { padding: 2rem; overflow-y: auto; }
+    .art-modal-text h2 { margin-top: 0; font-size: 1.6rem; }
+    .art-modal-close { position: absolute; top: 10px; right: 18px; font-size: 2rem; cursor: pointer; }
     .modal-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      font-size: 2rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      border-radius: 8px;
-      z-index: 10;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.6); color: white; border: none;
+      font-size: 2rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 8px; z-index: 10;
     }
     .modal-arrow.prev { left: 10px; }
     .modal-arrow.next { right: 10px; }
     .modal-arrow:hover { background: rgba(0,0,0,0.8); }
 
-    @media (max-width: 768px) {
-      .art-modal-content { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .art-modal-content { grid-template-columns: 1fr; } }
 
     footer {
       text-align: center;
@@ -264,17 +213,17 @@
 </section>
 
 <section class="content-section">
-  <p>This page showcases my character artwork and designs. I’ll continue to add finished pieces and notes about who these characters are and the worlds they belong to.</p>
+  <p>This page showcases my character artwork and designs.</p>
 
   <div class="card-grid">
     <!-- CARD 1 -->
     <div class="flip-card" tabindex="0" role="button"
          data-image="images/character1.jpg"
          data-title="Character One"
-         data-description="Description of Character One">
+         data-description="Full description of Character One.">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character1.jpg" alt="Character One" loading="lazy" decoding="async"></div>
-        <div class="flip-card-back">Click to view full artwork</div>
+        <div class="flip-card-front"><img src="images/character1.jpg" alt="Character One" loading="lazy"></div>
+        <div class="flip-card-back"><p>Description of Character One</p></div>
       </div>
     </div>
 
@@ -282,10 +231,10 @@
     <div class="flip-card" tabindex="0" role="button"
          data-image="images/character2.jpg"
          data-title="Character Two"
-         data-description="Description of Character Two">
+         data-description="Full description of Character Two.">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character2.jpg" alt="Character Two" loading="lazy" decoding="async"></div>
-        <div class="flip-card-back">Click to view full artwork</div>
+        <div class="flip-card-front"><img src="images/character2.jpg" alt="Character Two" loading="lazy"></div>
+        <div class="flip-card-back"><p>Description of Character Two</p></div>
       </div>
     </div>
 
@@ -293,12 +242,13 @@
     <div class="flip-card" tabindex="0" role="button"
          data-image="images/character3.jpg"
          data-title="Character Three"
-         data-description="Description of Character Three">
+         data-description="Full description of Character Three.">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><img src="images/character3.jpg" alt="Character Three" loading="lazy" decoding="async"></div>
-        <div class="flip-card-back">Click to view full artwork</div>
+        <div class="flip-card-front"><img src="images/character3.jpg" alt="Character Three" loading="lazy"></div>
+        <div class="flip-card-back"><p>Description of Character Three</p></div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -345,13 +295,8 @@ function openModal(index) {
 }
 
 cards.forEach((card, index) => {
-  card.addEventListener("click", () => {
-    if (card.classList.contains("flip")) openModal(index);
-    card.classList.toggle("flip");
-  });
-  card.addEventListener("keydown", e => {
-    if (e.key === "Enter") openModal(index);
-  });
+  card.addEventListener("click", () => openModal(index));
+  card.addEventListener("keydown", e => { if(e.key==="Enter") openModal(index); });
 });
 
 nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
@@ -365,5 +310,6 @@ document.addEventListener("keydown", e => {
   if(e.key==="ArrowLeft") prevBtn.click();
 });
 </script>
+
 </body>
 </html>
