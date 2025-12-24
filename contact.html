@@ -10,6 +10,7 @@
     :root {
       --bg: #ffffff;
       --text: #000;
+      --accent: #D7F5D3;
     }
 
     * { box-sizing: border-box; }
@@ -19,14 +20,13 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
-      background: #ffffff;
-      color: #000;
+      background: var(--accent);
+      color: var(--text);
     }
 
     /* NAVIGATION */
     .top-nav {
       background: #ffffff;
-      color: #000;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -40,30 +40,17 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-links {
-      display: flex;
-      gap: 2.1rem;
-    }
-    .nav-links a {
-      color: #000;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-    .nav-links a.active {
-      font-weight: 600;
-      border-bottom: 2px solid #000;
-      padding-bottom: 3px;
-    }
+    .nav-links { display: flex; gap: 2.1rem; }
+    .nav-links a { color: #000; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
+    .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
 
     /* PAGE HEADER */
     .page-header {
       width: 100%;
-      background: #ffffff;
+      background: var(--accent);
       padding: 3rem 1rem 1rem 1rem;
       text-align: center;
     }
-
     .page-header h1 {
       font-size: 3rem;
       margin: 0;
@@ -71,34 +58,59 @@
       color: #2f2f2f;
     }
 
-    /* CONTENT BLOCK */
+    /* MAIN CONTENT */
     .content-section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto 4rem;
-      background: rgba(255, 255, 255, 0.78);
+      background: rgba(255,255,255,0.78);
       padding: 2.8rem 2.4rem;
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
-    .content-section p,
-    .contact-list div {
+    /* Portrait */
+    .portrait {
+      flex: 1 1 250px;
+      max-width: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .portrait img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* About Me & Contact Text */
+    .about-contact {
+      flex: 2 1 400px;
+    }
+    .about-contact h2 {
+      font-family: "Dancing Script", cursive;
+      font-size: 2rem;
+      margin-top: 0;
+      color: #2f2f2f;
+    }
+    .about-contact p {
       font-size: 1.05rem;
       line-height: 1.7;
       color: #444;
+      margin-bottom: 1rem;
     }
+    .contact-list div { margin-bottom: 0.6rem; }
+    .contact-list a { color: #000; text-decoration: none; }
+    .contact-list a:hover { text-decoration: underline; }
 
-    .contact-list {
-      margin-top: 1rem;
-    }
-
-    .contact-list a {
-      color: #000 !important;
-      text-decoration: none;
-    }
-
-    .contact-list a:hover {
-      text-decoration: underline;
+    @media(max-width: 768px) {
+      .content-section { flex-direction: column; text-align: center; }
+      .portrait { max-width: 100%; }
+      .about-contact { flex: unset; }
     }
 
     /* FOOTER */
@@ -113,47 +125,48 @@
 
 <body>
 
-  <!-- NAV -->
-  <header class="top-nav">
-    <div class="top-nav-inner">
-      <div class="brand">Morgan Alger</div>
-      <nav class="nav-links">
-        <a href="index.html">Bio</a>
-        <a href="characters.html">Characters</a>
-        <a href="worlds.html">Worlds</a>
-        <a href="process.html">Concept Art</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand">Morgan Alger</div>
+    <nav class="nav-links">
+      <a href="index.html">Bio</a>
+      <a href="characters.html">Characters</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="process.html">Concept Art</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <h1>Contact</h1>
-  </section>
+<section class="page-header">
+  <h1>Contact / About Me</h1>
+</section>
 
-  <!-- MAIN CONTENT -->
-  <section class="content-section">
-    <p>
-      If you’d like to reach out — whether it’s about art, projects, collaboration,
-      or anything creative, here’s where you can contact me:
-    </p>
+<section class="content-section">
+  <div class="portrait">
+    <img src="images/portrait.jpg" alt="Morgan Alger Portrait" loading="lazy">
+  </div>
+
+  <div class="about-contact">
+    <h2>Hello, I'm Morgan!</h2>
+    <p>...</p>
+    <p>...</p>
 
     <div class="contact-list">
-      <div><strong>Email:</strong> <a href="morganmalger@icloud.com">morganmalger@icloud.com</a></div>
-      <div><strong>GitHub:</strong> <a href="https://github.com/kkokoro" target="_blank">Github</a></div>
-      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">Linkedin</a></div>
+      <div><strong>Email:</strong> <a href="mailto:morganmalger@icloud.com">morganmalger@icloud.com</a></div>
+      <div><strong>GitHub:</strong> <a href="https://github.com/kkokoro" target="_blank">GitHub</a></div>
+      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    © <span id="year"></span> Morgan Alger · Built with GitHub Pages
-  </footer>
+<footer>
+  © <span id="year"></span> Morgan Alger · Built with GitHub Pages
+</footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
