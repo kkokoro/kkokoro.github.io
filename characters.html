@@ -1,262 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Morgan Alger · Characters</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Morgan Alger · Characters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-  background: #0e0e0e;
-  color: #eaeaea;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-header {
-  text-align: center;
-  padding: 4rem 1rem 2rem;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Ubuntu", sans-serif;
+      background: #D7F5D3;
+      color: #000;
+    }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
+    /* NAVIGATION */
+    .top-nav {
+      background: #ffffff;
+      color: #000;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .top-nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.1rem;
+    }
+    .nav-links a {
+      color: #000;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
 
-header p {
-  opacity: 0.8;
-}
+    /* HEADER */
+    .page-header {
+      width: 100%;
+      background: #D7F5D3;
+      padding: 3rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
+    }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
+    /* MAIN CONTENT PANEL */
+    .content-section {
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 2.8rem 2.4rem;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .content-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+    }
 
-/* --- FLIP CARDS --- */
-.flip-card {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  perspective: 1000px;
-  cursor: pointer;
-}
+    /* CARD GRID */
+    .card-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
 
-.flip-card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.8s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  border-radius: 16px;
-}
+    /* FLIP CARD */
+    .flip-card {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .flip-card:hover .flip-card-inner {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+    .flip-card.flip .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .flip-card-front {
+      background: #eaeaea;
+      color: #777;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+    .flip-card-front::after {
+      content: "View Artwork";
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 6px;
+    }
+    .flip-card-back {
+      background: #ffffff;
+      color: #444;
+      transform: rotateY(180deg);
+      border: 1px solid #ddd;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      padding: 1.2rem;
+      text-align: center;
+    }
 
-.flip-card:hover .flip-card-inner {
-  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-}
+    /* MODAL */
+    .art-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+    .art-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .art-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      transform: scale(0.95);
+      transition: transform 0.35s ease;
+    }
+    .art-modal.active .art-modal-content {
+      transform: scale(1);
+    }
+    .art-modal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .art-modal-text {
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .art-modal-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+    .art-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .modal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 10;
+    }
+    .modal-arrow.prev { left: 10px; }
+    .modal-arrow.next { right: 10px; }
+    .modal-arrow:hover { background: rgba(0,0,0,0.8); }
 
-.flip-card.flip .flip-card-inner {
-  transform: rotateY(180deg);
-}
+    @media (max-width: 768px) {
+      .art-modal-content { grid-template-columns: 1fr; }
+    }
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.flip-card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.flip-card-front::after {
-  content: "View Artwork";
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: rgba(0,0,0,0.65);
-  padding: 0.4rem 0.6rem;
-  font-size: 0.75rem;
-  border-radius: 6px;
-}
-
-.flip-card-back {
-  background: #161616;
-  transform: rotateY(180deg);
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.flip-card-back h3 {
-  margin-bottom: 0.5rem;
-}
-
-.flip-card-back p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* --- MODAL --- */
-.art-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.art-modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.art-modal-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  background: #111;
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  transform: scale(0.95);
-  transition: transform 0.35s ease;
-}
-
-.art-modal.active .art-modal-content {
-  transform: scale(1);
-}
-
-.art-modal-content img {
-  max-width: 100%;
-  max-height: 60vh;
-  border-radius: 8px;
-}
-
-.art-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 1.8rem;
-  background: none;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.modal-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.modal-arrow.prev { left: 10px; }
-.modal-arrow.next { right: 10px; }
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  opacity: 0.6;
-}
-</style>
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #000;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Characters</h1>
-  <p>Concept art & character exploration</p>
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand">Morgan Alger</div>
+    <nav class="nav-links">
+      <a href="index.html">Bio</a>
+      <a href="characters.html" class="active">Characters</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="process.html">Concept Art</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="gallery">
-
-  <div class="flip-card" tabindex="0" role="button"
-    data-image="images/char1.jpg"
-    data-title="Character One"
-    data-description="Early character exploration."
-  >
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/char1.jpg" alt="Character One" loading="lazy" decoding="async">
-      </div>
-      <div class="flip-card-back">
-        <h3>Character One</h3>
-        <p>Early character exploration.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flip-card" tabindex="0" role="button"
-    data-image="images/char2.jpg"
-    data-title="Character Two"
-    data-description="Stylized fantasy design."
-  >
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/char2.jpg" alt="Character Two" loading="lazy" decoding="async">
-      </div>
-      <div class="flip-card-back">
-        <h3>Character Two</h3>
-        <p>Stylized fantasy design.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="flip-card" tabindex="0" role="button"
-    data-image="images/char3.jpg"
-    data-title="Character Three"
-    data-description="Narrative-driven concept."
-  >
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/char3.jpg" alt="Character Three" loading="lazy" decoding="async">
-      </div>
-      <div class="flip-card-back">
-        <h3>Character Three</h3>
-        <p>Narrative-driven concept.</p>
-      </div>
-    </div>
-  </div>
-
+<section class="page-header">
+  <h1>Characters</h1>
 </section>
 
-<div class="art-modal" id="artModal">
-  <div class="art-modal-content">
-    <button class="art-modal-close" aria-label="Close">×</button>
-    <button class="modal-arrow prev" aria-label="Previous">❮</button>
-    <button class="modal-arrow next" aria-label="Next">❯</button>
+<section class="content-section">
+  <p>This page showcases my character artwork and designs. I’ll continue to add finished pieces and notes about who these characters are and the worlds they belong to.</p>
 
-    <img id="modalImage" alt="">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDescription"></p>
+  <div class="card-grid">
+    <!-- CARD 1 -->
+    <div class="flip-card" tabindex="0" role="button"
+         data-image="images/character1.jpg"
+         data-title="Character One"
+         data-description="Description of Character One">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><img src="images/character1.jpg" alt="Character One" loading="lazy" decoding="async"></div>
+        <div class="flip-card-back">Click to view full artwork</div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="flip-card" tabindex="0" role="button"
+         data-image="images/character2.jpg"
+         data-title="Character Two"
+         data-description="Description of Character Two">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><img src="images/character2.jpg" alt="Character Two" loading="lazy" decoding="async"></div>
+        <div class="flip-card-back">Click to view full artwork</div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flip-card" tabindex="0" role="button"
+         data-image="images/character3.jpg"
+         data-title="Character Three"
+         data-description="Description of Character Three">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><img src="images/character3.jpg" alt="Character Three" loading="lazy" decoding="async"></div>
+        <div class="flip-card-back">Click to view full artwork</div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <footer>
-  © <span id="year"></span> Morgan Alger
+  © <span id="year"></span> Morgan Alger · Built with GitHub Pages
 </footer>
+
+<!-- MODAL -->
+<div id="artModal" class="art-modal">
+  <div class="art-modal-content">
+    <span class="art-modal-close">&times;</span>
+    <button class="modal-arrow prev" aria-label="Previous artwork">❮</button>
+    <button class="modal-arrow next" aria-label="Next artwork">❯</button>
+    <img id="modalImage">
+    <div class="art-modal-text">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+</div>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -275,11 +337,9 @@ let currentIndex = 0;
 function openModal(index) {
   const card = cards[index];
   currentIndex = index;
-
   modalImg.src = card.dataset.image;
   modalTitle.textContent = card.dataset.title;
   modalDesc.textContent = card.dataset.description;
-
   modal.classList.add("active");
   closeBtn.focus();
 }
@@ -289,7 +349,6 @@ cards.forEach((card, index) => {
     if (card.classList.contains("flip")) openModal(index);
     card.classList.toggle("flip");
   });
-
   card.addEventListener("keydown", e => {
     if (e.key === "Enter") openModal(index);
   });
@@ -298,18 +357,13 @@ cards.forEach((card, index) => {
 nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
 prevBtn.onclick = () => openModal((currentIndex - 1 + cards.length) % cards.length);
 closeBtn.onclick = () => modal.classList.remove("active");
-
-modal.onclick = e => {
-  if (e.target === modal) modal.classList.remove("active");
-};
-
+modal.onclick = e => { if(e.target===modal) modal.classList.remove("active"); };
 document.addEventListener("keydown", e => {
-  if (!modal.classList.contains("active")) return;
-  if (e.key === "Escape") modal.classList.remove("active");
-  if (e.key === "ArrowRight") nextBtn.click();
-  if (e.key === "ArrowLeft") prevBtn.click();
+  if(!modal.classList.contains("active")) return;
+  if(e.key==="Escape") modal.classList.remove("active");
+  if(e.key==="ArrowRight") nextBtn.click();
+  if(e.key==="ArrowLeft") prevBtn.click();
 });
 </script>
-
 </body>
 </html>
