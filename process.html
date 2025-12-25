@@ -121,59 +121,116 @@
 
     /* MODAL */
     .art-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-    overflow-y: auto; /* allows scrolling if modal content is taller than screen */
-    padding: 2rem 1rem; /* space for scrolling */
-  }
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+
     .art-modal.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .art-modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-    background: #fff;
-    transform: scale(0.95);
-    transition: transform 0.35s ease;
-  }
-    .art-modal.active .art-modal-content { transform: scale(1); }
-  
-  .art-modal img {
-    width: 100%;
-    height: auto; /* preserve image aspect ratio */
-    object-fit: contain;
-    display: block;
-  }
-  .art-modal-text {
-    padding: 2rem;
-    overflow-y: auto; /* scroll if text is long */
-  }
-    .art-modal-text h2 { margin-top: 0; font-size: 1.6rem; }
-    .art-modal-close { position: absolute; top: 10px; right: 18px; font-size: 2rem; cursor: pointer; }
+      max-width: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      transform: scale(0.95);
+      transition: transform 0.35s ease;
+    }
+
+    .art-modal.active .art-modal-content {
+      transform: scale(1);
+    }
+
+    /* IMAGE WRAPPER WITH FADE EFFECT */
+    .modal-image-wrapper {
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-image-wrapper::before,
+    .modal-image-wrapper::after {
+      content: "";
+      position: sticky;
+      left: 0;
+      right: 0;
+      height: 40px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .modal-image-wrapper::before {
+      top: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent);
+    }
+
+    .modal-image-wrapper::after {
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+    }
+
+    .art-modal img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .art-modal-text {
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .art-modal-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .art-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
     .modal-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.6); color: white; border: none;
-      font-size: 2rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 8px; z-index: 10;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 10;
     }
     .modal-arrow.prev { left: 10px; }
     .modal-arrow.next { right: 10px; }
     .modal-arrow:hover { background: rgba(0,0,0,0.8); }
 
-    @media (max-width: 768px) { .art-modal-content { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .art-modal-content {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* FOOTER */
     footer {
@@ -212,19 +269,15 @@
 
   <div class="card-grid">
     <!-- CARD 1 -->
-      <div class="card" tabindex="0" role="button"
-       data-image="images/officialcharacterconcept.jpg"
-       data-title="Game Character Concept."
-       data-description="Girl MC concept art for a current game I am working on. She is a spirit guide; a mysterious traveler of the Dreamworld, helping lost spirits while uncovering their own hidden past through magic, combat, and clever thinking.">
-    <div class="card-image">
-      <img src="images/officialcharacterconcept.jpg"
-           alt="Character Concept Art"
-           loading="lazy">
+    <div class="card" tabindex="0" role="button"
+         data-image="images/officialcharacterconcept.jpg"
+         data-title="Game Character Concept."
+         data-description="Girl MC concept art for a current game I am working on. She is a spirit guide; a mysterious traveler of the Dreamworld, helping lost spirits while uncovering their own hidden past through magic, combat, and clever thinking.">
+      <div class="card-image">
+        <img src="images/officialcharacterconcept.jpg" alt="Character Concept Art" loading="lazy">
+      </div>
+      <div class="card-description">Character Concept Art</div>
     </div>
-    <div class="card-description">
-      Character Concept Art
-    </div>
-  </div>
 
     <!-- CARD 2 -->
     <div class="card" tabindex="0" role="button"
@@ -256,7 +309,9 @@
     <span class="art-modal-close">&times;</span>
     <button class="modal-arrow prev" aria-label="Previous artwork">❮</button>
     <button class="modal-arrow next" aria-label="Next artwork">❯</button>
-    <img id="modalImage">
+    <div class="modal-image-wrapper">
+      <img id="modalImage">
+    </div>
     <div class="art-modal-text">
       <h2 id="modalTitle"></h2>
       <p id="modalDescription"></p>
