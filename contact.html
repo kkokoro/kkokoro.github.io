@@ -10,7 +10,8 @@
     :root {
       --bg: #ffffff;
       --text: #000;
-      --accent: #D7F5D3;
+      --header: #F5F5F5;
+      --content-bg: #E3F2FD;
     }
 
     * { box-sizing: border-box; }
@@ -20,8 +21,10 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
-      background: var(--accent);
       color: var(--text);
+
+      /* Updated background gradient */
+      background: linear-gradient(to bottom, #F5F5F5, #E3F2FD);
     }
 
     /* NAVIGATION */
@@ -47,7 +50,7 @@
     /* PAGE HEADER */
     .page-header {
       width: 100%;
-      background: var(--accent);
+      background: var(--header); /* updated */
       padding: 3rem 1rem 1rem 1rem;
       text-align: center;
     }
@@ -62,7 +65,7 @@
     .content-section {
       max-width: 1000px;
       margin: 2rem auto 4rem;
-      background: rgba(255,255,255,0.78);
+      background: var(--content-bg); /* updated */
       padding: 2.8rem 2.4rem;
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
