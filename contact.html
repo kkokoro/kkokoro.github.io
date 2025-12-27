@@ -12,6 +12,7 @@
       --text: #000;
       --header: #F5F5F5;
       --content-bg: #E3F2FD;
+      --accent: #2196F3;
     }
 
     * { box-sizing: border-box; }
@@ -22,8 +23,6 @@
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
       color: var(--text);
-
-      /* Updated background gradient */
       background: linear-gradient(to bottom, #F5F5F5, #E3F2FD);
     }
 
@@ -44,13 +43,20 @@
       align-items: center;
     }
     .nav-links { display: flex; gap: 2.1rem; }
-    .nav-links a { color: #000; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
+    .nav-links a { 
+      color: #000; 
+      text-decoration: none; 
+      font-size: 0.9rem; 
+      letter-spacing: 1px; 
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); border-bottom: 2px solid var(--accent); }
     .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
 
     /* PAGE HEADER */
     .page-header {
       width: 100%;
-      background: var(--header); /* updated */
+      background: var(--header);
       padding: 3rem 1rem 1rem 1rem;
       text-align: center;
     }
@@ -65,12 +71,12 @@
     .content-section {
       max-width: 1200px;
       margin: 2rem auto 4rem;
-      background: var(--content-bg); /* updated */
-      padding: 2.8rem 2.4rem;
+      background: var(--content-bg);
+      padding: 3rem 2.5rem;
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: flex-start;
       flex-wrap: wrap;
     }
@@ -78,10 +84,11 @@
     /* Portrait */
     .portrait {
       flex: 1 1 250px;
-      max-width: 300px;
+      max-width: 320px;
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      border: 3px solid var(--accent);
     }
     .portrait img {
       width: 100%;
@@ -92,7 +99,7 @@
 
     /* About Me & Contact Text */
     .about-contact {
-      flex: 2 1 400px;
+      flex: 2.5 1 450px;
     }
     .about-contact h2 {
       font-family: "Dancing Script", cursive;
@@ -106,13 +113,29 @@
       color: #444;
       margin-bottom: 1rem;
     }
+    .about-contact p strong { color: var(--accent); }
+    
     .contact-list div { margin-bottom: 0.6rem; }
-    .contact-list a { color: #000; text-decoration: none; }
-    .contact-list a:hover { text-decoration: underline; }
+    .contact-list a { color: #000; text-decoration: none; transition: color 0.2s; }
+    .contact-list a:hover { color: var(--accent); text-decoration: underline; }
+
+    /* Portfolio Button */
+    .portfolio-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .portfolio-btn:hover { background: #1976D2; transform: translateY(-2px); }
 
     @media(max-width: 768px) {
       .content-section { flex-direction: column; text-align: center; }
-      .portrait { max-width: 100%; }
+      .portrait { max-width: 100%; margin: 0 auto; }
       .about-contact { flex: unset; }
     }
 
@@ -152,16 +175,17 @@
 
   <div class="about-contact">
     <h2>Hello, I'm Morgan!</h2>
+    
     <p>
-      I’m a Computer Science student at the University of North Carolina at Charlotte, studying AI, Robotics, and Game Development, with a strong focus on the artistic side of games. I create characters, concept art, and immersive environments, exploring how visual design supports storytelling and player experience.
+      I’m a <strong>Computer Science student</strong> at the University of North Carolina at Charlotte, specializing in <strong>AI, Robotics, and Game Development</strong>, with a passion for creating <strong>game art</strong> and immersive experiences. I design characters, concept art, and worlds that support storytelling and player engagement.
     </p>
     
     <p>
-      I work with tools such as Unity, Blender, and Fusion, and have a solid programming foundation in Java, Python, and C-based languages. In both team and individual projects, I translate ideas from early sketches into cohesive, playable assets and game worlds.
+      I’m skilled with <strong>Unity, Blender, Fusion</strong>, and programming in <strong>Java, Python, and C-based languages</strong>. I enjoy transforming early sketches and ideas into polished, playable assets while collaborating with teams to bring cohesive game worlds to life.
     </p>
     
     <p>
-      I’m interested in game art, design, and localization, and how thoughtful visual and narrative choices can make games more engaging and accessible across cultures.
+      My interests include <strong>game design, art, and localization</strong>, focusing on crafting experiences that are engaging, accessible, and memorable. I aim to blend technical expertise with artistic vision to create games that resonate with players across cultures.
     </p>
     
     <div class="contact-list">
@@ -169,6 +193,8 @@
       <div><strong>GitHub:</strong> <a href="https://github.com/kkokoro" target="_blank">GitHub</a></div>
       <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/morgana-alger/" target="_blank">LinkedIn</a></div>
     </div>
+    
+    <a href="index.html" class="portfolio-btn">View Portfolio →</a>
   </div>
 </section>
 
