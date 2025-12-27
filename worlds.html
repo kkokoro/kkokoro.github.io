@@ -71,6 +71,21 @@
       margin: 0 auto;
     }
 
+    /* FOCUS AREAS */
+    .focus-areas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+    .focus-areas span {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #666;
+    }
+
     /* CARD GRID */
     .card-grid {
       margin-top: 2.5rem;
@@ -115,6 +130,22 @@
       color: #444;
       text-align: center;
       background: rgba(255,255,255,0.95);
+    }
+
+    .card-tags {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .card-tags span {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      background: #eef3f8;
+      color: #444;
+      letter-spacing: 0.5px;
     }
 
     /* MODAL */
@@ -191,26 +222,45 @@
     and atmosphere concepts that shape each story.
   </p>
 
+  <!-- FOCUS AREAS -->
+  <div class="focus-areas">
+    <span>Environment</span>
+    <span>Stylized Fantasy</span>
+    <span>Narrative-Driven</span>
+  </div>
+
   <div class="card-grid">
     <!-- WORLD CARDS -->
     <div class="card" tabindex="0" data-image="images/world1.jpg" data-title="World 1" data-description="TBD">
       <div class="card-image"><img src="images/world1.jpg" alt="World 1" loading="lazy"></div>
-      <div class="card-description">TBD</div>
+      <div class="card-description">
+        <div class="card-tags"><span>Environment</span></div>
+        TBD
+      </div>
     </div>
 
     <div class="card" tabindex="0" data-image="images/world2.jpg" data-title="World 2" data-description="TBD">
       <div class="card-image"><img src="images/world2.jpg" alt="World 2" loading="lazy"></div>
-      <div class="card-description">TBD</div>
+      <div class="card-description">
+        <div class="card-tags"><span>Environment</span></div>
+        TBD
+      </div>
     </div>
 
     <div class="card" tabindex="0" data-image="images/world3.jpg" data-title="World 3" data-description="TBD">
       <div class="card-image"><img src="images/world3.jpg" alt="World 3" loading="lazy"></div>
-      <div class="card-description">TBD</div>
+      <div class="card-description">
+        <div class="card-tags"><span>Environment</span></div>
+        TBD
+      </div>
     </div>
 
     <div class="card" tabindex="0" data-image="images/world4.jpg" data-title="World 4" data-description="TBD">
       <div class="card-image"><img src="images/world4.jpg" alt="World 4" loading="lazy"></div>
-      <div class="card-description">TBD</div>
+      <div class="card-description">
+        <div class="card-tags"><span>Environment</span></div>
+        TBD
+      </div>
     </div>
   </div>
 </section>
@@ -273,6 +323,5 @@ document.addEventListener("keydown", e => {
   if(e.key==="ArrowLeft") prevBtn.click();
 });
 </script>
-
 </body>
 </html>
