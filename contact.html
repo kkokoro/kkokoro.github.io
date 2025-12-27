@@ -11,8 +11,7 @@
       --bg: #ffffff;
       --text: #000;
       --header: #F5F5F5;
-      --content-bg: #E3F2FD;
-      --accent: #2196F3;
+      --content-bg: #E3F2FD; /* optional: could make it slightly lighter for more subtle look */
     }
 
     * { box-sizing: border-box; }
@@ -50,7 +49,7 @@
       letter-spacing: 1px; 
       transition: color 0.2s, border-bottom 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); border-bottom: 2px solid var(--accent); }
+    .nav-links a:hover { color: #444; border-bottom: 2px solid #444; }
     .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
 
     /* PAGE HEADER */
@@ -88,7 +87,7 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      border: 3px solid var(--accent);
+      border: 2px solid #000;
     }
     .portrait img {
       width: 100%;
@@ -113,25 +112,24 @@
       color: #444;
       margin-bottom: 1rem;
     }
-    .about-contact p strong { color: var(--accent); }
     
     .contact-list div { margin-bottom: 0.6rem; }
     .contact-list a { color: #000; text-decoration: none; transition: color 0.2s; }
-    .contact-list a:hover { color: var(--accent); text-decoration: underline; }
+    .contact-list a:hover { color: #444; text-decoration: underline; }
 
     /* Portfolio Button */
     .portfolio-btn {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.7rem 1.4rem;
-      background: var(--accent);
+      background: #000;
       color: #fff;
       font-weight: 600;
       border-radius: 12px;
       text-decoration: none;
       transition: background 0.2s, transform 0.2s;
     }
-    .portfolio-btn:hover { background: #1976D2; transform: translateY(-2px); }
+    .portfolio-btn:hover { background: #222; transform: translateY(-2px); }
 
     @media(max-width: 768px) {
       .content-section { flex-direction: column; text-align: center; }
@@ -177,15 +175,15 @@
     <h2>Hello, I'm Morgan!</h2>
     
     <p>
-      I’m a <strong>Computer Science student</strong> at the University of North Carolina at Charlotte, specializing in <strong>AI, Robotics, and Game Development</strong>, with a passion for creating <strong>game art</strong> and immersive experiences. I design characters, concept art, and worlds that support storytelling and player engagement.
+      I’m a Computer Science student at the University of North Carolina at Charlotte, specializing in AI, Robotics, and Game Development, with a passion for creating game art and immersive experiences. I design characters, concept art, and worlds that support storytelling and player engagement.
     </p>
     
     <p>
-      I’m skilled with <strong>Unity, Blender, Fusion</strong>, and programming in <strong>Java, Python, and C-based languages</strong>. I enjoy transforming early sketches and ideas into polished, playable assets while collaborating with teams to bring cohesive game worlds to life.
+      I work with Unity, Blender, and Fusion, alongside programming in Java, Python, and C-based languages. I enjoy transforming early sketches and ideas into polished, playable assets while collaborating with teams to bring cohesive game worlds to life.
     </p>
     
     <p>
-      My interests include <strong>game design, art, and localization</strong>, focusing on crafting experiences that are engaging, accessible, and memorable. I aim to blend technical expertise with artistic vision to create games that resonate with players across cultures.
+      My interests include game design, art, and localization, focusing on crafting experiences that are engaging, accessible, and memorable. I aim to blend technical expertise with artistic vision to create games that resonate with players across cultures.
     </p>
     
     <div class="contact-list">
