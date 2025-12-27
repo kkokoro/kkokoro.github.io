@@ -10,6 +10,7 @@
     :root {
       --bg: #ffffff;
       --text: #000;
+      --accent: #E3F2FD;
     }
 
     * { box-sizing: border-box; }
@@ -20,20 +21,18 @@
       min-height: 100vh;
       font-family: "Ubuntu", sans-serif;
       color: #000;
-
-      /* Updated background gradient */
       background: linear-gradient(to bottom, #F5F5F5, #E3F2FD);
     }
 
     /* ---------------- NAV ---------------- */
     .top-nav {
       background: #ffffff;
-      color: #000;
       position: sticky;
       top: 0;
       z-index: 10;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
+
     .top-nav-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -42,63 +41,86 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .nav-links {
       display: flex;
       gap: 2.1rem;
     }
+
     .nav-links a {
       color: #000;
       font-size: 0.9rem;
       letter-spacing: 1px;
+      text-decoration: none;
     }
 
-    /* ---------------- HERO / HEADER ---------------- */
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
+
+    /* ---------------- HERO ---------------- */
     .hero {
-      width: 100%;
-      /* Solid block to match top of gradient */
       background: #F5F5F5;
-      padding: 3rem 1rem 1rem 1rem;
+      padding: 4rem 1rem 2rem;
     }
 
     .hero-image-wrapper {
       text-align: center;
-      width: 100%;
-      margin-top: 1rem;
     }
 
     .hero-image {
-      width: 75%;
-      max-width: 700px;
-      border-radius: 0;
+      width: 80%;
+      max-width: 900px;
+      max-height: 480px;
       object-fit: cover;
     }
 
-    .hero-inner {
-      display: none;
-    }
-
-    /* ---------------- WELCOME SECTION ---------------- */
+    /* ---------------- INTRO ---------------- */
     .welcome-section {
-      background: #E3F2FD; 
-      padding: 60px 20px 80px;
+      background: var(--accent);
+      padding: 70px 20px 90px;
       text-align: center;
     }
 
     .welcome-section h1 {
       font-family: "Dancing Script", cursive;
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
       color: #2f2f2f;
     }
 
     .welcome-section p {
-      max-width: 720px;
-      margin: 0.5rem auto;
+      max-width: 760px;
+      margin: 0.6rem auto;
       font-size: 1.05rem;
       color: #5a5a5a;
       line-height: 1.7;
     }
 
+    /* ---------------- CTA ---------------- */
+    .home-cta {
+      margin-top: 2.4rem;
+    }
+
+    .home-cta a {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border-radius: 30px;
+      background: #000;
+      color: #fff;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .home-cta a:hover {
+      background: #333;
+    }
+
+    /* ---------------- FOOTER ---------------- */
     footer {
       text-align: center;
       margin: 2rem 0;
@@ -121,25 +143,34 @@
         <a href="process.html">Concept Art</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <div class="nav-icons">☀︎</div>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-image-wrapper">
-      <img src="images/profile.jpg" class="hero-image" alt="">
+      <!-- Replace this image later with a strong concept or environment piece -->
+      <img src="images/profile.jpg" class="hero-image" alt="Featured artwork">
     </div>
   </section>
 
+  <!-- INTRO -->
   <section class="welcome-section">
-    <h1>Welcome!</h1>
+    <h1>Game Artist & Developer</h1>
+
     <p>
-      This is a place where I share my characters, worlds, creative process,
-      and the things I’m building as a game developer and artist.
+      I’m Morgan Alger, a game artist and developer with a computer science background,
+      focused on character design, world-building, and interactive experiences.
     </p>
+
     <p>
-      Explore my portfolio and follow along as I bring new ideas to life.
+      This portfolio showcases my characters, environments, and creative process
+      across a variety of projects and styles.
     </p>
+
+    <div class="home-cta">
+      <a href="characters.html">View My Work</a>
+    </div>
   </section>
 
   <!-- FOOTER -->
