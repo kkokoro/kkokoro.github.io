@@ -19,13 +19,6 @@
       color: #000;
     }
 
-    .art-modal-text h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-      font-family: "Dancing Script", cursive;
-      color: #2f2f2f;
-    }
-
     /* NAVIGATION */
     .top-nav {
       background: #ffffff;
@@ -43,14 +36,23 @@
       align-items: center;
     }
     .nav-links { display: flex; gap: 2.1rem; }
-    .nav-links a { color: #000; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
-    .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
 
     /* HEADER */
     .page-header {
       width: 100%;
       background: #F5F5F5;
-      padding: 3rem 1rem 1rem 1rem;
+      padding: 3rem 1rem 1rem;
       text-align: center;
     }
     .page-header h1 {
@@ -60,7 +62,7 @@
       color: #2f2f2f;
     }
 
-    /* MAIN CONTENT */
+    /* CONTENT */
     .content-section {
       max-width: 1200px;
       margin: 2rem auto 4rem;
@@ -69,15 +71,33 @@
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
+
     .content-section p {
       font-size: 1.05rem;
       line-height: 1.7;
       color: #444;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* FOCUS AREAS */
+    .focus-areas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+    .focus-areas span {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #666;
     }
 
     /* CARD GRID */
     .card-grid {
-      margin-top: 2.5rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
@@ -101,22 +121,45 @@
 
     .card-image {
       width: 100%;
-      aspect-ratio: 3/4; /* Portrait mode */
+      aspect-ratio: 3 / 4;
       overflow: hidden;
     }
     .card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-image img {
+      transform: scale(1.04);
     }
 
     .card-description {
       padding: 1rem;
-      font-size: 0.95rem;
-      color: #444;
       text-align: center;
       background: rgba(255,255,255,0.95);
+    }
+
+    .card-tags {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .card-tags span {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      background: #eef3f8;
+      color: #444;
+      letter-spacing: 0.5px;
+    }
+
+    .card-description p {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0;
     }
 
     /* MODAL */
@@ -136,39 +179,73 @@
       opacity: 1;
       pointer-events: auto;
     }
+
     .art-modal-content {
       max-width: 90%;
       max-height: 90%;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      background: #fff;
       border-radius: 18px;
       overflow: hidden;
       position: relative;
-      background: #fff;
       transform: scale(0.95);
       transition: transform 0.35s ease;
     }
-    .art-modal.active .art-modal-content { transform: scale(1); }
-    .art-modal img { width: 100%; height: 100%; object-fit: cover; }
-    .art-modal-text { padding: 2rem; overflow-y: auto; }
-    .art-modal-text h2 { margin-top: 0; font-size: 1.6rem; }
-    .art-modal-close { position: absolute; top: 10px; right: 18px; font-size: 2rem; cursor: pointer; }
+    .art-modal.active .art-modal-content {
+      transform: scale(1);
+    }
+
+    .art-modal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .art-modal-text {
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .art-modal-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
+    }
+
+    .art-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
     .modal-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.6); color: white; border: none;
-      font-size: 2rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 8px; z-index: 10;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 8px;
     }
     .modal-arrow.prev { left: 10px; }
     .modal-arrow.next { right: 10px; }
-    .modal-arrow:hover { background: rgba(0,0,0,0.8); }
 
-    @media (max-width: 768px) { .art-modal-content { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .art-modal-content {
+        grid-template-columns: 1fr;
+      }
+    }
 
     footer {
       text-align: center;
       margin: 2rem 0;
       font-size: 0.9rem;
-      color: #000;
     }
   </style>
 </head>
@@ -193,34 +270,35 @@
 </section>
 
 <section class="content-section">
-  <p>This page showcases my character artwork and designs.</p>
+  <p>
+    A collection of original character designs exploring personality,
+    storytelling, and visual identity across different worlds and styles.
+  </p>
+
+  <div class="focus-areas">
+    <span>Character Design</span>
+    <span>Stylized Fantasy</span>
+    <span>Narrative-Driven</span>
+  </div>
 
   <div class="card-grid">
-    <!-- CARD 1 -->
-    <div class="card" tabindex="0" role="button"
-         data-image="images/character1.jpg"
-         data-title="Character One"
-         data-description="Full description of Character One.">
-      <div class="card-image"><img src="images/character1.jpg" alt="Character One" loading="lazy"></div>
-      <div class="card-description">Short description of Character One</div>
-    </div>
-    
-    <!-- CARD 2 -->
-    <div class="card" tabindex="0" role="button"
-         data-image="images/character2.jpg"
-         data-title="Character Two"
-         data-description="Full description of Character Two.">
-      <div class="card-image"><img src="images/character2.jpg" alt="Character Two" loading="lazy"></div>
-      <div class="card-description">Short description of Character Two</div>
-    </div>
+    <div class="card" tabindex="0"
+      data-image="images/character1.jpg"
+      data-title="Character One"
+      data-description="Role: Character Design, Concept Art
 
-    <!-- CARD 3 -->
-    <div class="card" tabindex="0" role="button"
-         data-image="images/character3.jpg"
-         data-title="Character Three"
-         data-description="Full description of Character Three.">
-      <div class="card-image"><img src="images/character3.jpg" alt="Character Three" loading="lazy"></div>
-      <div class="card-description">Short description of Character Three</div>
+An experimental character exploring identity and resilience through silhouette,
+expression, and visual storytelling.">
+      <div class="card-image">
+        <img src="images/character1.jpg" alt="Character One" loading="lazy">
+      </div>
+      <div class="card-description">
+        <div class="card-tags">
+          <span>Character Design</span>
+          <span>Concept Art</span>
+        </div>
+        <p>Exploratory fantasy character design</p>
+      </div>
     </div>
   </div>
 </section>
@@ -229,12 +307,11 @@
   © <span id="year"></span> Morgan Alger · Built with GitHub Pages
 </footer>
 
-<!-- MODAL -->
 <div id="artModal" class="art-modal">
   <div class="art-modal-content">
     <span class="art-modal-close">&times;</span>
-    <button class="modal-arrow prev" aria-label="Previous artwork">❮</button>
-    <button class="modal-arrow next" aria-label="Next artwork">❯</button>
+    <button class="modal-arrow prev">❮</button>
+    <button class="modal-arrow next">❯</button>
     <img id="modalImage">
     <div class="art-modal-text">
       <h2 id="modalTitle"></h2>
@@ -264,24 +341,19 @@ function openModal(index) {
   modalTitle.textContent = card.dataset.title;
   modalDesc.textContent = card.dataset.description;
   modal.classList.add("active");
-  closeBtn.focus();
 }
 
 cards.forEach((card, index) => {
   card.addEventListener("click", () => openModal(index));
-  card.addEventListener("keydown", e => { if(e.key==="Enter") openModal(index); });
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter") openModal(index);
+  });
 });
 
 nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
 prevBtn.onclick = () => openModal((currentIndex - 1 + cards.length) % cards.length);
 closeBtn.onclick = () => modal.classList.remove("active");
-modal.onclick = e => { if(e.target===modal) modal.classList.remove("active"); };
-document.addEventListener("keydown", e => {
-  if(!modal.classList.contains("active")) return;
-  if(e.key==="Escape") modal.classList.remove("active");
-  if(e.key==="ArrowRight") nextBtn.click();
-  if(e.key==="ArrowLeft") prevBtn.click();
-});
+modal.onclick = e => { if (e.target === modal) modal.classList.remove("active"); };
 </script>
 
 </body>
