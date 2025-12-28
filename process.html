@@ -36,8 +36,17 @@
       align-items: center;
     }
     .nav-links { display: flex; gap: 2.1rem; }
-    .nav-links a { color: #000; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
-    .nav-links a.active { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 3px; }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
 
     /* HEADER */
     .page-header {
@@ -112,9 +121,10 @@
 
     .card-image {
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
       overflow: hidden;
     }
+
     .card-image img {
       width: 100%;
       height: 100%;
@@ -122,8 +132,19 @@
       display: block;
       transition: transform 0.4s ease;
     }
+
     .card:hover .card-image img {
       transform: scale(1.04);
+    }
+
+    /* TURNAROUND CARD */
+    .dual-image {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .dual-image img:first-child {
+      border-right: 1px solid rgba(0,0,0,0.08);
     }
 
     .card-description {
@@ -131,12 +152,14 @@
       text-align: center;
       background: rgba(255,255,255,0.95);
     }
+
     .card-tags {
       display: flex;
       justify-content: center;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
+
     .card-tags span {
       font-size: 0.7rem;
       padding: 0.25rem 0.6rem;
@@ -162,7 +185,10 @@
       padding: 2rem 1rem;
     }
 
-    .art-modal.active { opacity: 1; pointer-events: auto; }
+    .art-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     .art-modal-content {
       max-width: 90%;
@@ -176,37 +202,75 @@
       transition: transform 0.35s ease;
     }
 
-    .art-modal.active .art-modal-content { transform: scale(1); }
+    .art-modal.active .art-modal-content {
+      transform: scale(1);
+    }
 
     .modal-image-wrapper {
       max-height: 90vh;
       overflow-y: auto;
-      position: relative;
+      padding: 1.5rem;
     }
 
-    .art-modal img {
+    #modalImages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    #modalImages img {
       width: 100%;
       height: auto;
       object-fit: contain;
-      display: block;
     }
 
-    .art-modal-text { padding: 2rem; overflow-y: auto; }
-    .art-modal-text h2 { margin-top: 0; font-size: 1.6rem; }
-    .art-modal-close { position: absolute; top: 10px; right: 18px; font-size: 2rem; cursor: pointer; }
+    .art-modal-text {
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .art-modal-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .art-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
 
     .modal-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.6); color: white; border: none;
-      font-size: 2rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 8px; z-index: 10;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 10;
     }
+
     .modal-arrow.prev { left: 10px; }
     .modal-arrow.next { right: 10px; }
-    .modal-arrow:hover { background: rgba(0,0,0,0.8); }
 
-    @media (max-width: 768px) { .art-modal-content { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      .art-modal-content {
+        grid-template-columns: 1fr;
+      }
+    }
 
-    footer { text-align: center; margin: 2rem 0; font-size: 0.9rem; color: #000; }
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #000;
+    }
   </style>
 </head>
 
@@ -230,50 +294,69 @@
 </section>
 
 <section class="content-section">
-  <p>This page is dedicated to my concept art.  
-    It’s a space to display the characters, creatures, environments, and assets that I create.</p>
+  <p>
+    This page is dedicated to my concept art.
+    It’s a space to display the characters, creatures, environments, and assets that I create.
+  </p>
 
   <div class="focus-areas">
     <span>Concept Art</span>
-    <span>Environtments</span>
+    <span>Environments</span>
     <span>Worlds</span>
     <span>Characters</span>
     <span>Assets</span>
   </div>
 
   <div class="card-grid">
-    <!-- CARD 1 -->
+
+    <!-- SPIRIT GUIDE TURNAROUND -->
     <div class="card" tabindex="0" role="button"
-         data-image="images/concept1.jpg"
-         data-title="Concept 1"
-         data-description="Full description of Concept One.">
-      <div class="card-image"><img src="images/concept1.jpg" alt="Concept One" loading="lazy"></div>
+      data-images="images/SpiritGuide - Character Concept.jpg,images/SpiritGuide - Character Concept2.jpg"
+      data-title="Spirit Guide · Character Turnaround"
+      data-description="Front and side view character concept sketches for Dreambound’s Spirit Guide, exploring proportions, silhouette, and costume design.">
+
+      <div class="card-image dual-image">
+        <img src="images/SpiritGuide - Character Concept.jpg" alt="Spirit Guide Front View" loading="lazy">
+        <img src="images/SpiritGuide - Character Concept2.jpg" alt="Spirit Guide Side View" loading="lazy">
+      </div>
+
+      <div class="card-description">
+        <div class="card-tags">
+          <span>Character Design</span>
+          <span>Turnaround</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHER CARDS -->
+    <div class="card" tabindex="0" role="button"
+      data-image="images/concept2.jpg"
+      data-title="Concept Two"
+      data-description="Full description of Concept Two.">
+
+      <div class="card-image">
+        <img src="images/concept2.jpg" alt="Concept Two" loading="lazy">
+      </div>
+
       <div class="card-description">
         <div class="card-tags"><span>Concept Design</span></div>
       </div>
     </div>
 
-    <!-- CARD 2 -->
     <div class="card" tabindex="0" role="button"
-         data-image="images/concept2.jpg"
-         data-title="Concept Two"
-         data-description="Full description of Concept Two.">
-      <div class="card-image"><img src="images/concept2.jpg" alt="Concept Two" loading="lazy"></div>
+      data-image="images/concept3.jpg"
+      data-title="Concept Three"
+      data-description="Full description of Concept Three.">
+
+      <div class="card-image">
+        <img src="images/concept3.jpg" alt="Concept Three" loading="lazy">
+      </div>
+
       <div class="card-description">
         <div class="card-tags"><span>Concept Design</span></div>
       </div>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="card" tabindex="0" role="button"
-         data-image="images/concept3.jpg"
-         data-title="Concept Three"
-         data-description="Full description of Concept Three.">
-      <div class="card-image"><img src="images/concept3.jpg" alt="Concept Three" loading="lazy"></div>
-      <div class="card-description">
-        <div class="card-tags"><span>Concept Design</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -284,9 +367,13 @@
 <div id="artModal" class="art-modal">
   <div class="art-modal-content">
     <span class="art-modal-close">&times;</span>
-    <button class="modal-arrow prev" aria-label="Previous artwork">❮</button>
-    <button class="modal-arrow next" aria-label="Next artwork">❯</button>
-    <div class="modal-image-wrapper"><img id="modalImage"></div>
+    <button class="modal-arrow prev">❮</button>
+    <button class="modal-arrow next">❯</button>
+
+    <div class="modal-image-wrapper">
+      <div id="modalImages"></div>
+    </div>
+
     <div class="art-modal-text">
       <h2 id="modalTitle"></h2>
       <p id="modalDescription"></p>
@@ -298,7 +385,7 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const modal = document.getElementById("artModal");
-const modalImg = document.getElementById("modalImage");
+const modalImages = document.getElementById("modalImages");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDescription");
 const closeBtn = document.querySelector(".art-modal-close");
@@ -311,27 +398,43 @@ let currentIndex = 0;
 function openModal(index) {
   const card = cards[index];
   currentIndex = index;
-  modalImg.src = card.dataset.image;
+  modalImages.innerHTML = "";
+
+  const images = card.dataset.images
+    ? card.dataset.images.split(",")
+    : [card.dataset.image];
+
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src.trim();
+    modalImages.appendChild(img);
+  });
+
   modalTitle.textContent = card.dataset.title;
   modalDesc.textContent = card.dataset.description;
   modal.classList.add("active");
-  closeBtn.focus();
 }
 
 cards.forEach((card, index) => {
   card.addEventListener("click", () => openModal(index));
-  card.addEventListener("keydown", e => { if(e.key==="Enter") openModal(index); });
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter") openModal(index);
+  });
 });
 
 nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
 prevBtn.onclick = () => openModal((currentIndex - 1 + cards.length) % cards.length);
 closeBtn.onclick = () => modal.classList.remove("active");
-modal.onclick = e => { if(e.target===modal) modal.classList.remove("active"); };
+
+modal.onclick = e => {
+  if (e.target === modal) modal.classList.remove("active");
+};
+
 document.addEventListener("keydown", e => {
-  if(!modal.classList.contains("active")) return;
-  if(e.key==="Escape") modal.classList.remove("active");
-  if(e.key==="ArrowRight") nextBtn.click();
-  if(e.key==="ArrowLeft") prevBtn.click();
+  if (!modal.classList.contains("active")) return;
+  if (e.key === "Escape") modal.classList.remove("active");
+  if (e.key === "ArrowRight") nextBtn.click();
+  if (e.key === "ArrowLeft") prevBtn.click();
 });
 </script>
 
