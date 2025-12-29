@@ -52,7 +52,7 @@
     .page-header {
       width: 100%;
       background: #F5F5F5;
-      padding: 3rem 1rem 1rem 1rem;
+      padding: 3rem 1rem 1rem;
       text-align: center;
     }
     .page-header h1 {
@@ -71,6 +71,7 @@
       border-radius: 22px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     }
+
     .content-section p {
       font-size: 1.05rem;
       line-height: 1.7;
@@ -114,37 +115,48 @@
       flex-direction: column;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.2);
     }
 
-    .card-image {
-      width: 100%;
+    /* HERO + PREVIEW STRIP */
+    .turnaround-preview {
+      display: grid;
+      grid-template-rows: 1fr auto;
       aspect-ratio: 3 / 4;
-      overflow: hidden;
     }
 
-    .card-image img {
+    .hero-view img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
       transition: transform 0.4s ease;
     }
 
-    .card:hover .card-image img {
+    .card:hover .hero-view img {
       transform: scale(1.04);
     }
 
-    /* TURNAROUND CARD */
-    .dual-image {
+    .preview-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+      padding: 0.4rem;
+      background: #f5f5f5;
     }
 
-    .dual-image img:not(:last-child) {
-      border-right: 1px solid rgba(0,0,0,0.08);
+    .preview-strip img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .preview-strip img {
+      opacity: 1;
     }
 
     .card-description {
@@ -181,7 +193,6 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
       z-index: 999;
-      overflow-y: auto;
       padding: 2rem 1rem;
     }
 
@@ -198,17 +209,9 @@
       overflow: hidden;
       position: relative;
       background: #fff;
-      transform: scale(0.95);
-      transition: transform 0.35s ease;
-    }
-
-    .art-modal.active .art-modal-content {
-      transform: scale(1);
     }
 
     .modal-image-wrapper {
-      max-height: 90vh;
-      overflow-y: auto;
       padding: 1.5rem;
     }
 
@@ -216,7 +219,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
-      align-items: start;
     }
 
     #modalImages img {
@@ -229,16 +231,13 @@
       #modalImages {
         grid-template-columns: 1fr;
       }
+      .art-modal-content {
+        grid-template-columns: 1fr;
+      }
     }
 
     .art-modal-text {
       padding: 2rem;
-      overflow-y: auto;
-    }
-
-    .art-modal-text h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
     }
 
     .art-modal-close {
@@ -249,34 +248,10 @@
       cursor: pointer;
     }
 
-    .modal-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
-      color: white;
-      border: none;
-      font-size: 2rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      border-radius: 8px;
-      z-index: 10;
-    }
-
-    .modal-arrow.prev { left: 10px; }
-    .modal-arrow.next { right: 10px; }
-
-    @media (max-width: 768px) {
-      .art-modal-content {
-        grid-template-columns: 1fr;
-      }
-    }
-
     footer {
       text-align: center;
       margin: 2rem 0;
       font-size: 0.9rem;
-      color: #000;
     }
   </style>
 </head>
@@ -301,70 +276,33 @@
 </section>
 
 <section class="content-section">
-  <p>
-    This page is dedicated to my concept art.
-    It’s a space to display the characters, creatures, environments, and assets that I create.
-  </p>
-
-  <div class="focus-areas">
-    <span>Concept Art</span>
-    <span>Environments</span>
-    <span>Worlds</span>
-    <span>Characters</span>
-    <span>Assets</span>
-  </div>
 
   <div class="card-grid">
 
-    <!--DREAM TRAVELER -->
-    <div class="card" tabindex="0" role="button"
+    <!-- SPIRIT GUIDE -->
+    <div class="card"
       data-images="
         images/SpiritGuide - Character Concept.jpg,
         images/SpiritGuide - Character Concept2.jpg,
         images/SpiritGuide - Character Concept3.jpg
       "
       data-title="Dream Traveler · Character Concept"
-      data-description="Front, side and back view character concept sketches for a current game I am developing. She is a wanderer of dreamlike realms, moving through spaces shaped by emotion and unrest, and helping lost beings find their way forward. This design is planned for future 3D development.">
-    
-      <div class="card-image dual-image">
-        <img src="images/SpiritGuide - Character Concept.jpg" alt="Spirit Guide Front View" loading="lazy">
-        <img src="images/SpiritGuide - Character Concept2.jpg" alt="Spirit Guide Side View" loading="lazy">
-        <img src="images/SpiritGuide - Character Concept3.jpg" alt="Spirit Guide Back View" loading="lazy">
+      data-description="Front, side, and back view character concept sketches for a current game I am developing. She is a wanderer of dreamlike realms, moving through spaces shaped by emotion and unrest, and helping lost beings find their way forward. This character is planned for future 3D development.">
+
+      <div class="turnaround-preview">
+        <div class="hero-view">
+          <img src="images/SpiritGuide - Character Concept.jpg" alt="Front View">
+        </div>
+        <div class="preview-strip">
+          <img src="images/SpiritGuide - Character Concept2.jpg" alt="Side View">
+          <img src="images/SpiritGuide - Character Concept3.jpg" alt="Back View">
+        </div>
       </div>
-    
+
       <div class="card-description">
         <div class="card-tags">
           <span>Character Design</span>
         </div>
-      </div>
-    </div>
-
-    <!-- OTHER CARDS -->
-    <div class="card" tabindex="0" role="button"
-      data-image="images/concept2.jpg"
-      data-title="Concept Two"
-      data-description="Full description of Concept Two.">
-
-      <div class="card-image">
-        <img src="images/concept2.jpg" alt="Concept Two" loading="lazy">
-      </div>
-
-      <div class="card-description">
-        <div class="card-tags"><span>Concept Design</span></div>
-      </div>
-    </div>
-
-    <div class="card" tabindex="0" role="button"
-      data-image="images/concept3.jpg"
-      data-title="Concept Three"
-      data-description="Full description of Concept Three.">
-
-      <div class="card-image">
-        <img src="images/concept3.jpg" alt="Concept Three" loading="lazy">
-      </div>
-
-      <div class="card-description">
-        <div class="card-tags"><span>Concept Design</span></div>
       </div>
     </div>
 
@@ -375,78 +313,8 @@
   © <span id="year"></span> Morgan Alger · Built with GitHub Pages
 </footer>
 
-<div id="artModal" class="art-modal">
-  <div class="art-modal-content">
-    <span class="art-modal-close">&times;</span>
-    <button class="modal-arrow prev">❮</button>
-    <button class="modal-arrow next">❯</button>
-
-    <div class="modal-image-wrapper">
-      <div id="modalImages"></div>
-    </div>
-
-    <div class="art-modal-text">
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
-    </div>
-  </div>
-</div>
-
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
-
-const modal = document.getElementById("artModal");
-const modalImages = document.getElementById("modalImages");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDescription");
-const closeBtn = document.querySelector(".art-modal-close");
-const cards = Array.from(document.querySelectorAll(".card"));
-const nextBtn = document.querySelector(".modal-arrow.next");
-const prevBtn = document.querySelector(".modal-arrow.prev");
-
-let currentIndex = 0;
-
-function openModal(index) {
-  const card = cards[index];
-  currentIndex = index;
-  modalImages.innerHTML = "";
-
-  const images = card.dataset.images
-    ? card.dataset.images.split(",")
-    : [card.dataset.image];
-
-  images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src.trim();
-    modalImages.appendChild(img);
-  });
-
-  modalTitle.textContent = card.dataset.title;
-  modalDesc.textContent = card.dataset.description;
-  modal.classList.add("active");
-}
-
-cards.forEach((card, index) => {
-  card.addEventListener("click", () => openModal(index));
-  card.addEventListener("keydown", e => {
-    if (e.key === "Enter") openModal(index);
-  });
-});
-
-nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
-prevBtn.onclick = () => openModal((currentIndex - 1 + cards.length) % cards.length);
-closeBtn.onclick = () => modal.classList.remove("active");
-
-modal.onclick = e => {
-  if (e.target === modal) modal.classList.remove("active");
-};
-
-document.addEventListener("keydown", e => {
-  if (!modal.classList.contains("active")) return;
-  if (e.key === "Escape") modal.classList.remove("active");
-  if (e.key === "ArrowRight") nextBtn.click();
-  if (e.key === "ArrowLeft") prevBtn.click();
-});
 </script>
 
 </body>
