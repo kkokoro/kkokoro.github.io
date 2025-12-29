@@ -123,6 +123,19 @@
       width: 100%;
       aspect-ratio: 3 / 4;
       overflow: hidden;
+      position: relative;
+    }
+    
+    .view-count {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.7rem;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
     }
 
     .card-image img {
@@ -317,12 +330,10 @@
   <div class="card-grid">
 
     <!--DREAM TRAVELER -->
-    <div class="card" tabindex="0" role="button"
-      data-images="
-        images/SpiritGuide - Character Concept.jpg,
-        images/SpiritGuide - Character Concept2.jpg,
-        images/SpiritGuide - Character Concept3.jpg
-      "
+    <div class="card-image">
+      <img src="images/SpiritGuide - Character Concept.jpg" alt="Dream Traveler Front View">
+      <span class="view-count">3 Views</span>
+    </div>
       data-title="Dream Traveler · Character Concept"
       data-description="Front, side and back view character concept sketches for a current game I am developing. She is a wanderer of dreamlike realms, moving through spaces shaped by emotion and unrest, and helping lost beings find their way forward. This design is planned for future 3D development.">
     
