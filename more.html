@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Morgan Alger · More</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --bg: #ffffff; --text: #000; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Ubuntu", sans-serif;
+      background: linear-gradient(to bottom, #F5F5F5, #E3F2FD);
+      color: #000;
+    }
+
+    /* NAVIGATION */
+    .top-nav {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .top-nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links { display: flex; gap: 2.1rem; }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .nav-links a.active {
+      font-weight: 600;
+      border-bottom: 2px solid #000;
+      padding-bottom: 3px;
+    }
+
+    /* HEADER */
+    .page-header {
+      width: 100%;
+      background: #F5F5F5;
+      padding: 3rem 1rem 1rem;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
+    }
+
+    /* CONTENT */
+    .content-section {
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      background: rgba(255,255,255,0.78);
+      padding: 2.8rem 2.4rem;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .content-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* FOCUS AREAS */
+    .focus-areas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+    .focus-areas span {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    /* CARD GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    /* CARD */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-image img {
+      transform: scale(1.04);
+    }
+
+    .card-description {
+      padding: 1rem;
+      text-align: center;
+      background: rgba(255,255,255,0.95);
+    }
+
+    .card-tags {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .card-tags span {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      background: #eef3f8;
+      color: #444;
+      letter-spacing: 0.5px;
+    }
+
+    .card-description p {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0;
+    }
+
+    /* MODAL */
+    .art-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+    .art-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .art-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.35s ease;
+    }
+    .art-modal.active .art-modal-content {
+      transform: scale(1);
+    }
+
+    .art-modal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .art-modal-text {
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .art-modal-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      font-family: "Dancing Script", cursive;
+      color: #2f2f2f;
+    }
+
+    .art-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .modal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .modal-arrow.prev { left: 10px; }
+    .modal-arrow.next { right: 10px; }
+
+    @media (max-width: 768px) {
+      .art-modal-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand">Morgan Alger</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="characters.html" class="active">Characters</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="process.html">Concept Art</a>
+      <a href="process.html">More</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <h1>Characters</h1>
+</section>
+
+<section class="content-section">
+  <p>
+    A collection of original character designs exploring personality,
+    storytelling, and visual identity across different worlds and styles.
+  </p>
+
+  <div class="focus-areas">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+ <div class="card-grid">
+  <div class="card" tabindex="0"
+       data-image="images/artwork1.jpg"
+       data-title="Artwork 1"
+       data-description="TBD">
+    <div class="card-image">
+      <img src="images/artwork1.jpg" alt="Artwork 1" loading="lazy">
+    </div>
+    <div class="card-description">
+      <div class="card-tags">
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+  <div class="card" tabindex="0"
+       data-image="images/artwork2.jpg"
+       data-title="Artwork 2"
+       data-description="TBD">
+    <div class="card-image">
+      <img src="images/artwork2.jpg" alt="Artwork 2" loading="lazy">
+    </div>
+    <div class="card-description">
+      <div class="card-tags">
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+  <div class="card" tabindex="0"
+       data-image="images/artwork3.jpg"
+       data-title="Artwork 3"
+       data-description="TBD">
+    <div class="card-image">
+      <img src="images/artwork3.jpg" alt="Artwork 3" loading="lazy">
+    </div>
+    <div class="card-description">
+      <div class="card-tags">
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+  <div class="card" tabindex="0"
+       data-image="images/artwork4.jpg"
+       data-title="Artwork 4"
+       data-description="TBD">
+    <div class="card-image">
+      <img src="images/artwork4.jpg" alt="Artwork 4" loading="lazy">
+    </div>
+    <div class="card-description">
+      <div class="card-tags">
+        <span>More</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © <span id="year"></span> Morgan Alger · Built with GitHub Pages
+</footer>
+
+<div id="artModal" class="art-modal">
+  <div class="art-modal-content">
+    <span class="art-modal-close">&times;</span>
+    <button class="modal-arrow prev">❮</button>
+    <button class="modal-arrow next">❯</button>
+    <img id="modalImage">
+    <div class="art-modal-text">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const modal = document.getElementById("artModal");
+const modalImg = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDescription");
+const closeBtn = document.querySelector(".art-modal-close");
+const cards = Array.from(document.querySelectorAll(".card"));
+const nextBtn = document.querySelector(".modal-arrow.next");
+const prevBtn = document.querySelector(".modal-arrow.prev");
+
+let currentIndex = 0;
+
+function openModal(index) {
+  const card = cards[index];
+  currentIndex = index;
+  modalImg.src = card.dataset.image;
+  modalTitle.textContent = card.dataset.title;
+  modalDesc.textContent = card.dataset.description;
+  modal.classList.add("active");
+}
+
+cards.forEach((card, index) => {
+  card.addEventListener("click", () => openModal(index));
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter") openModal(index);
+  });
+});
+
+nextBtn.onclick = () => openModal((currentIndex + 1) % cards.length);
+prevBtn.onclick = () => openModal((currentIndex - 1 + cards.length) % cards.length);
+closeBtn.onclick = () => modal.classList.remove("active");
+modal.onclick = e => { if (e.target === modal) modal.classList.remove("active"); };
+</script>
+
+</body>
+</html>
